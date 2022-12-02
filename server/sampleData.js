@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const connectDB = require('./server/config/db');
-const Products = require('./server/models/Products');
-const Receipts = require('./server/models/Receipts');
+const connectDB = require('./config/db');
+const Products = require('./models/Products');
+const Receipts = require('./models/Receipts');
 
 
 const milk = new Products({
    _id: new mongoose.Types.ObjectId,
-  name: 'milk',
+  name: 'Milk',
   category: 'Dairy',
   fridgeExp: 7,
   fridgeMetric: 'days',
@@ -16,7 +16,7 @@ const milk = new Products({
 
 const apple = new Products({
     _id: new mongoose.Types.ObjectId,
-        name: 'apple',
+        name: 'Apple',
     category: 'Fruit',
     fridgeExp: 7,
     fridgeMetric: 'days',
@@ -62,3 +62,5 @@ const seed = async () => {
 
   seed()
   //DB KEPT OPEN FOR CLOUD ACCESS -_-
+  
+

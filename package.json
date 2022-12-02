@@ -2,12 +2,12 @@
   "name": "final-project",
   "version": "0.0.1",
   "description": "A review time project",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "npm run build-watch & npm run start-server ",
     "build-watch": "webpack -w",
-    "start-server": "nodemon --watch server -e js,html server/index.js",
-    "seed":"node seed.js"
+    "start-server": "nodemon --watch server -e js,html server/app.js",
+    "seed": "node seed.js"
   },
   "keywords": [],
   "author": "",
@@ -17,14 +17,14 @@
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
+    "mongoose": "^6.7.5",
     "nodemon": "^2.0.16",
-    "pg": "^8.7.3",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^v8.0.1",
     "react-router-dom": "^6.3.0",
-    "sequelize": "^6.20.0",
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
   },

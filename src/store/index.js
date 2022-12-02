@@ -1,11 +1,12 @@
-/* Here is where you will configure the store 
-    The store needs some reducer slices!
-*/
-
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from "@reduxjs/toolkit"
+import productSlice from "../reducers/productSlice"
+import receiptsSlice from "../reducers/receiptsSlice"
 
 const store = configureStore({
-  reducer: {},
+    reducer: {
+        products: productSlice,
+        receipt: receiptsSlice,
+    }
 })
 
 export default store
