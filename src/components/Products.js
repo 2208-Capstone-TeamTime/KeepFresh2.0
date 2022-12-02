@@ -1,30 +1,37 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose;
+import React, {useEffect, useState} from "react";
+import { add2Receipt } from "../reducers/receiptsSlice";
+import { selectProducts, fetchProducts } from "../reducers/productSlice";
+import { useDispatch, useSelector } from "react-redux";
 
+const Products = () => {
+    const products = useSelector(selectProducts)
+    console.log(products);
 
-const ProductSchema = Schema({
-    _id: Schema.Types.ObjectId,
-    name: {
-        type: String
-    },
-    category: {
-        type: String,
-        enum: ['Fruit', 'Vegetable', 'Dairy', 'Protein', 'Poultry', 'Carbs']
-    },
-    fridgeExp: {
-        type: Number
-    },
-    fridgeMetric: {
-        type: String,
-        enum: ['hour', 'hours', 'day', 'days', 'week', 'weeks', 'month', 'months', 'year', 'years']
-    },
-    freezerExp: {
-        type: Number
-    },
-    freezerMetric: {
-        type: String,
-        enum: ['day', 'days', 'week', 'weeks', 'month', 'months', 'year', 'years' ]
-    },
-});
+    const dispatch = useDispatch()
 
-module.exports = mongoose.model('Products', ProductSchema);
+    const addItem = (product) => {
+        console.log('Adding', product.name);
+        dispatch(add2Receipt(product));
+    };
+
+    useEffect(() => {
+        dispatch(fetchProducts())
+    }, [])
+    
+    return (
+        <>
+        <div className="products">
+            <h2>Products</h2>
+        </div>
+        <div className="products">
+            {products.map((product) => (
+                <button key={product.name} onClick={() => {addItem(product)}}>
+                    {product.name}
+                </button>
+            ))}
+        </div>
+        </>
+    )
+}
+
+export default Products

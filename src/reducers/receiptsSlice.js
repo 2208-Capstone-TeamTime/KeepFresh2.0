@@ -11,7 +11,7 @@ const receiptSlice = createSlice({
             if (item) {
               item.quantity++;
             } else {
-              let newItem = { ...action.payload.name };
+              let newItem = { ...action.payload };
               newItem.quantity = 1;
               state.push(newItem);
             }  

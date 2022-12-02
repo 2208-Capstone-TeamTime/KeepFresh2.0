@@ -1,13 +1,22 @@
-const mongoose = require('mongoose');
-const { Schema } = mongoose
+import React, {useState} from "react";
+import { useSelector } from "react-redux";
+import { selectReceipt } from "../reducers/receiptsSlice";
+import Products from "./Products";
 
-const ReceiptSchema = Schema({
-    _id: Schema.Types.ObjectId,
-    transaction: {
-        type: Number
-    },
-    productsId: [{type: Schema.Types.ObjectId, ref:'Products'}]
-    ,
-});
+const Receipt = () => {
+    const receipt =useSelector(selectReceipt);
 
-module.exports = mongoose.model('Receipts', ReceiptSchema);
+    console.log(receipt);
+    return (
+        <>
+        <div className="receipt">
+            {receipt.map((item) => (
+                <div key= {item.name}>{item.name}</div>
+            ))}
+        <button >Submit</button>
+        </div>
+        </>
+    )
+}
+
+export default Receipt
