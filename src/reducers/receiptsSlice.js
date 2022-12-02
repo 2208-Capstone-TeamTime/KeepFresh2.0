@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
 
+
+
 const receiptSlice = createSlice({
     name: "receipt",
     initialState,

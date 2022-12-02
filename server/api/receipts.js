@@ -25,6 +25,6 @@ router.get("/", async (req, res, next) => {
     }
 });
 
-  //store a single receipt 
+  //create a single receipt 
 
   module.exports = router;

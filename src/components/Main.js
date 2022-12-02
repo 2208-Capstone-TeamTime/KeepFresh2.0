@@ -8,7 +8,7 @@ import { Routes, Route } from 'react-router-dom'
 const Main = () => {
   return (
     <div>
-      <nav>Welcome!</nav>
+      <nav>Keep Fresh</nav>
       <main>
      <Routes>
         <Route path='/' element={<>

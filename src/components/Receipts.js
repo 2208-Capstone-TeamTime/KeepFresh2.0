@@ -10,9 +10,12 @@ const Receipt = () => {
     return (
         <>
         <div className="receipt">
-            {receipt.map((item) => (
+        {receipt.map((item) => (
                 <div key= {item.name}>{item.name}</div>
-            ))}
+            )
+                //if item.q = 1  , add quantity to div
+                
+            )}
         <button >Submit</button>
         </div>
         </>
