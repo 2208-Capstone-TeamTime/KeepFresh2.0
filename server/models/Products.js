@@ -9,7 +9,7 @@ const ProductSchema = Schema({
     },
     category: {
         type: String,
-        enum: ['Fruit', 'Vegetable', 'Dairy', 'Protein', 'Poultry', 'Carbs']
+        enum: ['Fruit', 'Fruits', 'Vegetable', 'Vegetables', 'Dairy', 'Protein', 'Poultry', 'Carbs', 'Seafood', 'Meats']
     },
     fridgeExp: {
         type: Number
