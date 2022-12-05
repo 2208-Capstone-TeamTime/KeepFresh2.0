@@ -28,6 +28,9 @@ const Main = () => {
         <Route path='/' element={<>
             <Receipt />
             <Products />
+        </>}>
+        </Route>
+        <Route path='/exp' element={<>
             <Expirations />
         </>}>
         </Route>

@@ -1,23 +1,23 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// const initialState = {
-//   productsId: []
-// }
-const initialState = []
+const initialState = {
+  productsId: [],
+  exp: []
+}
+// const initialState = []
 
 export const addReceipt = createAsyncThunk('addReceipt', async (payload) => {
   const { data } = await axios.post('/api/receipts', payload)
   return data
 })
 
-export const fetchExpProducts = createAsyncThunk("fetchExpProducts", async(payload) => {
-  try{
+export const fetchExpProducts = createAsyncThunk("fetchExpProducts", async (payload) => {
+  try {
     const { data } = await axios.get(`/api/products/${payload}/exp`)
-    console.log(data)
-    return await data
+    return data
   }
-  catch(error){
+  catch (error) {
     console.log("Couldn't fetch exp products!", error)
   }
 })
@@ -25,36 +25,39 @@ export const fetchExpProducts = createAsyncThunk("fetchExpProducts", async(paylo
 
 
 const receiptSlice = createSlice({
-    name: "receipt",
-    initialState,
-    reducers: {
-        add2Receipt: (state, action) => {
-            const item = state.find((p) => p === action.payload.name);
-            if (item) {
-              item.quantity++;
-            } else {
-              let newItem = { ...action.payload };
-              newItem.quantity = 1;
-              state.push(newItem);
-            }  
-            return state;
-        }
-    },
-    extraReducers: (builder) => {
-      builder.addCase(addReceipt.fulfilled, (state, action) => {
-        state.push(action.payload)
-      }), 
-      builder.addCase(fetchExpProducts.fulfilled,(state, action) => {
-        console.log('fetchExp payload', action.payload);
-        return action.payload
-      })
+  name: "receipt",
+  initialState,
+  reducers: {
+    add2Receipt: (state, action) => {
+      const item = state.productsId.find((p) => p === action.payload.name);
+      if (item) {
+        item.quantity++;
+      } else {
+        let newItem = { ...action.payload };
+        newItem.quantity = 1;
+        state.productsId.push(newItem);
+      }
+      return state;
     }
-  
+  },
+  extraReducers: (builder) => {
+    builder.addCase(addReceipt.fulfilled, (state, action) => {
+      state.productsId.push(action.payload)
+    }),
+      builder.addCase(fetchExpProducts.fulfilled, (state, action) => {
+       state.exp.push(action.payload);
+      })
+  }
+
 });
 
 export const selectReceipt = (state) => {
-    return state.receipt;
-}
+  return state.receipt.productsId;
+};
+
+export const selectExp = (state) => {
+  return state.receipt.exp;
+};
 
 export const { add2Receipt } = receiptSlice.actions;
 
