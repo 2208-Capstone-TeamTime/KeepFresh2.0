@@ -23,12 +23,44 @@
     display: flex;
     height: 80px;
     padding: 10px;
+    justify-content: space-between;
   }
   
   main {
     align-items: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+  }
+
+  .receipt{
+    margin: 5%;
+    width: 40vmax;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(186, 202, 253);
+  }
+
+  .products{
+    margin: 2%;
+    width: 40vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-buttons{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+
+  .product-button{
+    border-radius: 5px;
+    border-color: none;
+    color: #000000;
+    background-color: rgb(186, 202, 253);
   }
   

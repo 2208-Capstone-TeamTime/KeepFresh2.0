@@ -21,14 +21,16 @@ const Products = () => {
     return (
         <>
         <div className="products">
+        <div className="products-header">
             <h2>Products</h2>
         </div>
-        <div className="products">
+        <div className="product-buttons">
             {products.map((product) => (
-                <button key={product.name} onClick={() => {addItem(product)}}>
+                <button className="product-button" key={product.name} onClick={() => {addItem(product)}}>
                     {product.name}
                 </button>
             ))}
+        </div>
         </div>
         </>
     )
