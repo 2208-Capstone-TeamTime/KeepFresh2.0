@@ -3,6 +3,10 @@ const router = express.Router();
 const { Receipts } = require("../models/Receipts");
 
 
+router.use(express.json())
+
+let db
+
 //get all receipts 
 router.get("/", async (req, res, next) => {
     try {
@@ -25,6 +29,26 @@ router.get("/", async (req, res, next) => {
     }
 });
 
-  //create a single receipt 
+  //store a single receipt 
+  router.post('/', async(req, res, next) => {
+    try{
+      const addReceipt = await Receipts.create(req.body)
+      res.send(addReceipt)
+    }
+    catch (error){
+      console.log("Error in POST /api/receipts :\n\n", error);
+      next(error)
+    }
+  })
+  // router.post('/', async(req, res, next) => {
+  //   const receipt = req.body
+
+  //   db.collection("receipts")
+  //     .insertOne(receipt)
+  //     .then(result => {
+  //       res.status(201).json(result)
+  //     })
+  // })
+
 
   module.exports = router;
