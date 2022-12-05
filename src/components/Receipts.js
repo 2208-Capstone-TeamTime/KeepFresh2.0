@@ -1,32 +1,29 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchExpProducts, selectReceipt } from "../reducers/receiptsSlice";
+import React from "react";
+import { Link } from 'react-router-dom'
+import { useSelector } from "react-redux";
+import { selectReceipt } from "../reducers/receiptsSlice";
+import Expirations from "./Expirations";
 
 
 const Receipt = () => {
-    const receipt = useSelector(selectReceipt);
-
-    const exp = fetch()
-
-    const dispatch = useDispatch()
-
-    // async function addReceipt(receipt){
-    //     dispatch(addReceipt(receipt))
-    // }
-
-    async function addExp(product) {
-        dispatch(fetchExpProducts(product))
-    }
+     const receipt = useSelector(selectReceipt);
 
     console.log(receipt);
     return (
         <>
-        <div className="receipt">
-            {receipt.map((item) => (
-                <div key= {item.name}>{item.name}</div>
-            ))}
-        <button >Submit</button>
-        </div>
+            <div className="receipt">
+                <div className="receipt-header">
+                    <h2>Receipt</h2>
+                </div>
+                <div className="receipt-items">
+                    {receipt.map((item) => (
+                        <div key={item.name}>{item.name}</div>)
+
+                    )}</div>
+                <Link to='' element={<Expirations/>}>
+                    <button >Submit</button>
+                </Link>
+            </div>
         </>
     )
 }

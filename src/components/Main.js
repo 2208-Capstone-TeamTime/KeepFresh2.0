@@ -1,7 +1,9 @@
 import React from 'react'
+import { Routes, Route, NavLink } from 'react-router-dom'
 import Receipt from './Receipts'
 import Products from './Products'
-import { Routes, Route, NavLink } from 'react-router-dom'
+import Expirations from './Expirations'
+
 /* 
     This is you entry point for your routes
 */
@@ -25,10 +27,11 @@ const Main = () => {
      <Routes>
         <Route path='/' element={<>
             <Receipt />
-            <Products/>
+            <Products />
+            <Expirations />
         </>}>
-
         </Route>
+
      </Routes>
       </main>
     </div>
