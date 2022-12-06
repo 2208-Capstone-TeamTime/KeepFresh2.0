@@ -4,7 +4,7 @@ import Receipt from './Receipts'
 import Products from './Products'
 import Expirations from './Expirations'
 import Navbar from './navbar'
-import { AuthContextProvider } from '../context/Auth'
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 /* 
@@ -15,7 +15,7 @@ import { AuthContextProvider } from '../context/Auth'
 const Main = () => {
   return (
     <div>
-      <AuthContextProvider>
+      <GoogleOAuthProvider clientId='215929364522-bi5i854us765mig4gu8gn61ai6trug9n.apps.googleusercontent.com' >
         <nav>
           <Navbar />
         </nav>
@@ -33,7 +33,8 @@ const Main = () => {
 
           </Routes>
         </main>
-      </AuthContextProvider>
+      </GoogleOAuthProvider>
+      
     </div>
   )
 }
