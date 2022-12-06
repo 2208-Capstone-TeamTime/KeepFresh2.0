@@ -15,19 +15,18 @@ import { hasGrantedAllScopesGoogle } from '@react-oauth/google';
 const Signin = () => {
 
     const handleGoogleLogin =() =>{
-        <GoogleLogin
+        google.accounts.id.prompt();
         
-/>
     }
     return (
         <>
          
-        <GoogleButton 
+        <GoogleLogin
         onClick={()=> google.accounts.id.initialize({
             client_id: '215929364522-bi5i854us765mig4gu8gn61ai6trug9n.apps.googleusercontent.com',
             callback: handleGoogleLogin})
 
-          google.accounts.id.prompt()
+          
          }/> 
 
         </>
