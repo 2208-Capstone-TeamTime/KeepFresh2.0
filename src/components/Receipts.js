@@ -29,13 +29,13 @@ const Receipt = () => {
                             {item.name}
                             <button>delete</button>
 
-                            <input type="radio" id={item.name}
+                            {/* <input type="radio" id={item.name}
                                 name='fridge' checked />
                             <label for={item.name}>fridge</label>
 
                             <input type="radio" id={item.name}
                                 name='freezer' />
-                            <label for={item.name}>freezer</label>
+                            <label for={item.name}>freezer</label> */}
                         </div>)
 
                     )}</div>
