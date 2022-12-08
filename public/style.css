@@ -10,10 +10,10 @@
   
   body {
     background: linear-gradient(#ffffff, #c0c0c0);
-    height: 100vh;
+    height: 100%;
     padding: 0;
     margin: 0;
-    width: 100vw;
+    width: 100%;
   }
 
   nav {
@@ -29,6 +29,7 @@
   main {
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
@@ -40,6 +41,12 @@
     flex-direction: column;
     align-items: center;
     background-color: rgb(186, 202, 253);
+  }
+
+  .receipt-items{
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
   }
 
   .products{
@@ -62,5 +69,15 @@
     border-color: none;
     color: #000000;
     background-color: rgb(186, 202, 253);
+  }
+
+  .expirations{
+    margin: 2%;
+    width: 85vmax;
+    height: 40vmax;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap;
+    align-items: center;
   }
   
