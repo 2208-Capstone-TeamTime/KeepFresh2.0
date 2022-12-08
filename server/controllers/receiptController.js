@@ -1,7 +1,5 @@
 const Receipts = require("../models/Receipts")
 
-const Receipts = require("../models/Receipts")
-
 exports.findAllReceipts = (req, res) => {
 
     Receipts.find({})
