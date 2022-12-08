@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { selectReceipt, fetchExpProducts } from "../reducers/receiptsSlice";
+import { selectReceipt, fetchExpProducts, fetchReceipts } from "../reducers/receiptsSlice";
+import { addReceipt, deleteItem } from "../reducers/receiptsSlice";
 import Expirations from "./Expirations";
 
 
@@ -9,6 +10,10 @@ const Receipt = () => {
     const receipt = useSelector(selectReceipt);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        dispatch(fetchReceipts())
+    }, []);
 
     const fetchExp = (item) => {
 
@@ -27,7 +32,7 @@ const Receipt = () => {
                     {receipt.map((item) => (
                         <div key={item.name}>
                             {item.name}
-                            <button>delete</button>
+                            <button onClick={deleteItem}>delete</button>
 
                             <input type="radio" id={item.name}
                                 name='fridge' checked />
@@ -37,16 +42,15 @@ const Receipt = () => {
                                 name='freezer' />
                             <label for={item.name}>freezer</label>
                         </div>)
-
                     )}</div>
 
                 <button>Get All Calendar Notifications</button>
                 <button onClick={() => receipt.map((item) => fetchExp(item)
                 )}>Calculate Expirations</button>
-
+                <button onClick={addReceipt()}>Add Receipt</button>
             </div>
         </>
     )
 }
 
-export default Receipt
+export default Receipt;
