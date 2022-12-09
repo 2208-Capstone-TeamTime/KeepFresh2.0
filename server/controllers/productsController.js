@@ -22,7 +22,9 @@ module.exports = {
       .then(data => {
         const exp = {
           food:req.params.name,
-          info:`Expires ${data.fridgeExp} ${data.fridgeMetric}, from ${today}`}
+          fridge:`Expires ${data.fridgeExp} ${data.fridgeMetric}, from ${today}`,
+          freezer:`Expires ${data.freezerExp} ${data.freezerMetric}, from ${today}`
+        }
     
           res.send(exp);
         })

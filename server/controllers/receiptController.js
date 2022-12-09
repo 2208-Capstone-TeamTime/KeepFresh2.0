@@ -1,3 +1,4 @@
+const mongoose  = require("mongoose");
 const Receipts = require("../models/Receipts")
 
 module.exports = {
@@ -25,8 +26,9 @@ module.exports = {
   },
 
   createReceipt: async (req, res, next) => {
+    const id = new mongoose.Types.ObjectId
     try {
-      const addReceipt = new Receipts(req.body)
+      const addReceipt = new Receipts({_id: id, productsId: req.body.products})
       const result = await addReceipt.save()
       res.send(result)
     }
