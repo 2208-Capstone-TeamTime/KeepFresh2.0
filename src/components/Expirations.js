@@ -26,7 +26,7 @@ const Expirations = () => {
             <div key={item.food}>
                 {/* <h2>Expirations Test{item.name}</h2> */}
                 {/* return string from api */}
-                {`${item.food}- ${item.info}`}
+                {`${item.food}- ${item.fridge} & ${item.freezer}`}
             </div>
         ))}
         </div>

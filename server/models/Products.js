@@ -25,6 +25,7 @@ const ProductSchema = Schema({
         type: String,
         enum: ['day', 'days', 'week', 'weeks', 'month', 'months', 'year', 'years' ]
     },
+    
 });
 
 module.exports = mongoose.model('Products', ProductSchema);

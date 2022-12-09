@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const {findAllProducts, calcExpiration} = require('../controllers/productsController');
+const ProductsController = require('../controllers/productsController');
 
 
 //get all products
-router.get("/all", findAllProducts);
+router.get("/all", ProductsController.findAllProducts);
 
 // //get one product
 // router.get("/:id", findProduct_);
 
 //return expiration
-router.get("/:name/exp", calcExpiration);
+router.get("/:name/exp", ProductsController.calcExpiration);
 
 module.exports = router;
