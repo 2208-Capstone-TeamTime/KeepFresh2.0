@@ -15,7 +15,7 @@ module.exports = {
       });
   },
 
-  findReceiptbyId: async (req, res, next) => {
+  findReceiptbyUserId: async (req, res, next) => {
     try {
       const data = await Receipts.find({ _id: req.params.id })
       res.send(data);
@@ -63,27 +63,4 @@ module.exports = {
       next(error)
     }
   }
-}
-
-
-// exports.findReceiptbyId = async (req, res, next) => {
-//   try {
-//     const data = await Receipts.find({ _id: req.params.id })
-//     res.send(data);
-//   } catch (error) {
-//     console.log("Error in GET /api/receipts :\n\n", error);
-//     next(error);
-//   }
-// }
-
-// exports.createReceipt = async (req, res, next) => {
-//   try {
-//     const addReceipt = new Receipts(req.body)
-//     const result = await addReceipt.save()
-//     res.send(result)
-//   }
-//   catch (error) {
-//     console.log("Error in POST /api/receipts :\n\n", error);
-//     next(error)
-//   }
-// }
+};
