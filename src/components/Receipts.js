@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { selectReceipt, fetchExpProducts, fetchReceipts } from "../reducers/receiptsSlice";
 import { addReceipt, deleteItem } from "../reducers/receiptsSlice";
-import Expirations from "./Expirations";
+
 
 
 const Receipt = () => {
@@ -46,7 +46,7 @@ const Receipt = () => {
                     <h2>Receipt</h2>
                 </div>
                 <div className="receipt-items">
-                    {receipt.map((item) => (
+                    {receipt? receipt.map((item) => (
                         <div key={item.name}>
                             {item.name}
                             {/* <button onClick={deleteItem}>delete</button> */}
@@ -66,16 +66,10 @@ const Receipt = () => {
                                 }/>
                             <label for={item.name}>freezer</label>
                         </div>)
-                )}</div>
+                    ): ''}</div>
 
-
-                <button>Get All Calendar Notifications</button>
-                <button onClick={() => receipt.map((item) => {
-                    // const copy = {...item}
-                    // copy.fridge = true
-                    fetchExp(item)                    
-                }
-
+                {/* <button>Get All Calendar Notifications</button> */}
+                <button onClick={() => receipt.map((item) => fetchExp(item)
                 // createReceipt()
                 )}>Calculate Expirations</button>
                 <button onClick={addReceipt()}>Add Receipt</button>

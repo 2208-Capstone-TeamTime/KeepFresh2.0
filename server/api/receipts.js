@@ -8,8 +8,8 @@ router.use(express.json())
 //get all receipts 
 router.get("/", ReceiptController.findAllReceipts)
 
-//get a single receipt by :id
-router.get('/:id', ReceiptController.findReceiptbyId);
+//get users receipt history by :id
+router.get('/:id', ReceiptController.findReceiptbyUserId);
 
 //create a single receipt 
 router.post('/', ReceiptController.createReceipt);
