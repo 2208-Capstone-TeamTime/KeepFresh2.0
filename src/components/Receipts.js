@@ -32,7 +32,7 @@ const Receipt = () => {
                     {receipt.map((item) => (
                         <div key={item.name}>
                             {item.name}
-                            <button onClick={deleteItem}>delete</button>
+                            {/* <button onClick={deleteItem}>delete</button>
 
                             <input type="radio" id={item.name}
                                 name='fridge' checked />
@@ -40,12 +40,13 @@ const Receipt = () => {
 
                             <input type="radio" id={item.name}
                                 name='freezer' />
-                            <label for={item.name}>freezer</label>
+                            <label for={item.name}>freezer</label> */}
                         </div>)
                     )}</div>
 
                 <button>Get All Calendar Notifications</button>
                 <button onClick={() => receipt.map((item) => fetchExp(item)
+                // createReceipt()
                 )}>Calculate Expirations</button>
                 <button onClick={addReceipt()}>Add Receipt</button>
             </div>
