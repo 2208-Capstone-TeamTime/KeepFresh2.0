@@ -11,7 +11,6 @@ module.exports = {
             message:
               err.message || "Some error occurred while retrieving products."
           });
-     
         });
   },
 
@@ -25,7 +24,7 @@ module.exports = {
           fridge:`Expires ${data.fridgeExp} ${data.fridgeMetric}, from ${today}`,
           freezer:`Expires ${data.freezerExp} ${data.freezerMetric}, from ${today}`
         }
-    
+            
           res.send(exp);
         })
       .catch(err => {

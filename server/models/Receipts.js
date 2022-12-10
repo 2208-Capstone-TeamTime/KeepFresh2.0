@@ -3,10 +3,15 @@ const { Schema } = mongoose
 
 const ReceiptSchema = Schema({
     _id: Schema.Types.ObjectId,
-    productsId: [{type: Schema.Types.ObjectId, ref:'Products'}],
-    
+    // usersReceipts: [milk, chesse...],
+    // userEmail: adsfa@gmail.com
 
 });
+
+
+// id:
+
+// userreceipts:[]
 
 // receiptTable = mongoose.model('Receipts', ReceiptSchema);
 
