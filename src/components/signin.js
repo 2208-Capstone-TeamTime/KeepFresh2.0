@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import   { storeUserInfo, currentUser} from '../reducers/userSlice';
 // import {GoogleButton} from 'react-google-button'
 // import { GoogleLogin } from '@react-oauth/google';
 // import { hasGrantedAllScopesGoogle } from '@react-oauth/google';
 import jwt_decode from "jwt-decode"
+import { useDispatch, useSelector } from 'react-redux';
 // import {connect} from '../../calendar'
 
 // const hasAccess = hasGrantedAllScopesGoogle(
@@ -15,19 +17,28 @@ import jwt_decode from "jwt-decode"
 
 
 const Signin = () => {
+    const user  = useSelector(currentUser);
+    const dispatch = useDispatch();
 
     function handleCallbackResponse(response){
-        console.log("Encoded JWT ID token: " + response.credential )
-        const userObject = jwt_decode(response.credential)
-        console.log(userObject)
-    } 
+        const userObject = jwt_decode(response.credential);
+
+        const newUser = {
+            //new mongooseID generated in controller
+            displayName: userObject.given_name, 
+            email: userObject.email};
+        
+       
+        dispatch(storeUserInfo(newUser));
+
+        console.log('current user', user);
+    };
 
     useEffect(() => {
-        /* global google */
+    
         google.accounts.id.initialize({
             client_id: "215929364522-bi5i854us765mig4gu8gn61ai6trug9n.apps.googleusercontent.com",
             callback: handleCallbackResponse
-
         })
 
         google.accounts.id.renderButton(
@@ -36,35 +47,13 @@ const Signin = () => {
         )
     }, [])
 
-    // const handleGoogleLogin =() =>{
-    //     google.accounts.id.prompt();
-        
-    // }
-
-    // const list10 = connect();
+    
     return (
         <>
-         <div id='signInDiv'></div>
-
+         <div id='signInDiv'
          
-         {/* <GoogleLogin
-                onSuccess={credentialResponse => {
-                    hasGrantedAllScopesGoogle(
-                        credentialResponse,
-                        'https://www.googleapis.com/auth/calendar',
-                        'https://www.google.com/calendar/feeds',
-                        'https://www.googleapis.com/auth/calendar.events'
-                      );
-                    console.log(credentialResponse, credentialResponse.clientId);
-                    list10();
-                  }}
-                  onError={() => {
-                    console.log('Login Failed');
-                  }}
-            /> */}
-
-        </>
-        
+         ></div>
+         </> 
     )
 }
 

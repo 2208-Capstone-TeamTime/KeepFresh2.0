@@ -2,7 +2,14 @@ const mongoose = require('mongoose');
 const connectDB = require('./server/config/db');
 const Products = require('./server/models/Products');
 const Receipts = require('./server/models/Receipts');
+const Users = require('./server/models/Users')
 
+
+const Test = new Users({
+  _id: new mongoose.Types.ObjectId,
+  displayName: 'Test',
+  email: 'test@gmail.com'
+});
 
 const milk = new Products({
    _id: new mongoose.Types.ObjectId,
@@ -247,6 +254,10 @@ const receiptsData = [receipt1, receipt2, receipt3, receipt4, receipt5, receipt6
 const seed = async () => {
     try {
       await connectDB();
+
+      await Users.deleteMany({});
+      await Users.insertMany(Test);
+
       await Products.deleteMany({});
       await Products.insertMany(productsData)
 

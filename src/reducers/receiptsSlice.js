@@ -55,9 +55,9 @@ const receiptSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchReceipts.fulfilled, (state, action) => {
-      console.log("fetch state", state)
-      console.log("fetch products in receipt", state.productsId)
-      console.log("fetch action pyaload", action.payload)
+      // console.log("fetch state", state)
+      // console.log("fetch products in receipt", state.productsId)
+      // console.log("fetch action pyaload", action.payload)
     }),
       builder.addCase(addReceipt.fulfilled, (state, action) => {
         state.productsId.push(action.payload)
