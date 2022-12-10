@@ -16,56 +16,56 @@ import jwt_decode from "jwt-decode"
 
 const Signin = () => {
 
-    function handleCallbackResponse(response){
-        console.log("Encoded JWT ID token: " + response.credential )
-        const userObject = jwt_decode(response.credential)
-        console.log(userObject)
-    } 
+//     function handleCallbackResponse(response){
+//         console.log("Encoded JWT ID token: " + response.credential )
+//         const userObject = jwt_decode(response.credential)
+//         console.log(userObject)
+//     } 
 
-    useEffect(() => {
-        /* global google */
-        google.accounts.id.initialize({
-            client_id: "215929364522-bi5i854us765mig4gu8gn61ai6trug9n.apps.googleusercontent.com",
-            callback: handleCallbackResponse
+//     useEffect(() => {
+//         /* global google */
+//         google.accounts.id.initialize({
+//             client_id: "215929364522-bi5i854us765mig4gu8gn61ai6trug9n.apps.googleusercontent.com",
+//             callback: handleCallbackResponse
 
-        })
+//         })
 
-        google.accounts.id.renderButton(
-            document.getElementById("signInDiv"),
-            {theme: "outline", size: "large"}
-        )
-    }, [])
+//         google.accounts.id.renderButton(
+//             document.getElementById("signInDiv"),
+//             {theme: "outline", size: "large"}
+//         )
+//     }, [])
 
-    // const handleGoogleLogin =() =>{
-    //     google.accounts.id.prompt();
+//     // const handleGoogleLogin =() =>{
+//     //     google.accounts.id.prompt();
         
-    // }
+//     // }
 
-    // const list10 = connect();
-    return (
-        <>
-         <div id='signInDiv'></div>
+//     // const list10 = connect();
+//     return (
+//         <>
+//          <div id='signInDiv'></div>
 
          
-         {/* <GoogleLogin
-                onSuccess={credentialResponse => {
-                    hasGrantedAllScopesGoogle(
-                        credentialResponse,
-                        'https://www.googleapis.com/auth/calendar',
-                        'https://www.google.com/calendar/feeds',
-                        'https://www.googleapis.com/auth/calendar.events'
-                      );
-                    console.log(credentialResponse, credentialResponse.clientId);
-                    list10();
-                  }}
-                  onError={() => {
-                    console.log('Login Failed');
-                  }}
-            /> */}
+//          {/* <GoogleLogin
+//                 onSuccess={credentialResponse => {
+//                     hasGrantedAllScopesGoogle(
+//                         credentialResponse,
+//                         'https://www.googleapis.com/auth/calendar',
+//                         'https://www.google.com/calendar/feeds',
+//                         'https://www.googleapis.com/auth/calendar.events'
+//                       );
+//                     console.log(credentialResponse, credentialResponse.clientId);
+//                     list10();
+//                   }}
+//                   onError={() => {
+//                     console.log('Login Failed');
+//                   }}
+//             /> */}
 
-        </>
+//         </>
         
-    )
+//     )
 }
 
 export default Signin

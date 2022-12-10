@@ -4,9 +4,11 @@ const Products = require('./server/models/Products');
 const Receipts = require('./server/models/Receipts');
 
 
+
+//  Dairy Products
 const milk = new Products({
    _id: new mongoose.Types.ObjectId,
-  name: 'milk',
+  name: 'Milk',
   category: 'Dairy',
   fridgeExp: 7,
   fridgeMetric: 'days',
@@ -14,19 +16,9 @@ const milk = new Products({
   freezerMetric: 'month'
 });
 
-const apple = new Products({
-    _id: new mongoose.Types.ObjectId,
-        name: 'apple',
-    category: 'Fruit',
-    fridgeExp: 7,
-    fridgeMetric: 'days',
-    freezerExp: 1,
-    freezerMetric: 'month'
-});
-
-const cheese = new Products({
+const almondMilk = new Products({
   _id: new mongoose.Types.ObjectId,
- name: 'cheese',
+ name: 'Almond Milk',
  category: 'Dairy',
  fridgeExp: 7,
  fridgeMetric: 'days',
@@ -34,40 +26,245 @@ const cheese = new Products({
  freezerMetric: 'month'
 });
 
+const coconutMilk = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Coconut Milk',
+ category: 'Dairy',
+ fridgeExp: 7,
+ fridgeMetric: 'days',
+ freezerExp: 1,
+ freezerMetric: 'month'
+});
+
+const butterMilk = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Butter Milk',
+ category: 'Dairy',
+ fridgeExp: 7,
+ fridgeMetric: 'days',
+ freezerExp: 1,
+ freezerMetric: 'month'
+});
+
+const powderedMilk = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Powdered Milk',
+ category: 'Dairy',
+ fridgeExp: 7,
+ fridgeMetric: 'days',
+ freezerExp: 1,
+ freezerMetric: 'month'
+});
+
+const eggs = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Eggs',
+ category: 'Dairy',
+ fridgeExp: 3,
+ fridgeMetric: 'weeks',
+ freezerExp: 0,
+ freezerMetric: 'day'
+ });
+
+ const butter = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Butter',
+ category: 'Dairy',
+ fridgeExp: 1,
+ fridgeMetric: 'month',
+ freezerExp: 1,
+ freezerMetric: 'year'
+ });
+
+ const yogurt = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Yogurt',
+ category: 'Dairy',
+ fridgeExp: 4,
+ fridgeMetric: 'days',
+ freezerExp: 2,
+ freezerMetric: 'months'
+ });
+
+ const swissCheese = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Swiss Cheese',
+ category: 'Dairy',
+ fridgeExp: 7,
+ fridgeMetric: 'days',
+ freezerExp: 1,
+ freezerMetric: 'month'
+});
+
+const stringCheese = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'String Cheese',
+ category: 'Dairy',
+ fridgeExp: 7,
+ fridgeMetric: 'days',
+ freezerExp: 1,
+ freezerMetric: 'month'
+});
+
+const romanoCheese = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Romano Cheese',
+ category: 'Dairy',
+ fridgeExp: 7,
+ fridgeMetric: 'days',
+ freezerExp: 1,
+ freezerMetric: 'month'
+});
+
+const parmesanCheese = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Parmesan Cheese',
+ category: 'Dairy',
+ fridgeExp: 7,
+ fridgeMetric: 'days',
+ freezerExp: 1,
+ freezerMetric: 'month'
+});
+
+const provoloneCheese = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Provolone Cheese',
+ category: 'Dairy',
+ fridgeExp: 7,
+ fridgeMetric: 'days',
+ freezerExp: 1,
+ freezerMetric: 'month'
+});
+
+
+
+
+
+// Meat & Poultry Products
 const hotDogs = new Products({
    _id: new mongoose.Types.ObjectId,
-       name: 'hot dogs',
-   category: 'Protein',
+       name: 'Hot Dogs',
+   category: 'Meat',
    fridgeExp: 7,
    fridgeMetric: 'days',
    freezerExp: 3,
    freezerMetric: 'months'
 });
 
+const hamburgers = new Products({
+  _id: new mongoose.Types.ObjectId,
+      name: 'Hamburgers',
+  category: 'Meat',
+  fridgeExp: 7,
+  fridgeMetric: 'days',
+  freezerExp: 3,
+  freezerMetric: 'months'
+});
+
 const beef = new Products({
   _id: new mongoose.Types.ObjectId,
- name: 'beef',
- category: 'Protein',
+ name: 'Beef',
+ category: 'Meat',
  fridgeExp: 3,
  fridgeMetric: 'days',
  freezerExp: 1,
  freezerMetric: 'month'
 });
 
+const groundBeef = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Ground Beef',
+ category: 'Meat',
+ fridgeExp: 3,
+ fridgeMetric: 'days',
+ freezerExp: 3,
+ freezerMetric: 'month'
+});
+
+const beefJerky = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Beef',
+ category: 'Meat',
+ fridgeExp: 3,
+ fridgeMetric: 'months',
+ freezerExp: 0,
+ freezerMetric: 'days'
+});
+
+const beefCorned = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Corned Beef',
+ category: 'Meat',
+ fridgeExp: 3,
+ fridgeMetric: 'days',
+ freezerExp: 2,
+ freezerMetric: 'months'
+});
+
 const chicken = new Products({
    _id: new mongoose.Types.ObjectId,
-       name: 'chicken',
-   category: 'Protein',
+       name: 'Chicken',
+   category: 'Meat',
    fridgeExp: 2,
    fridgeMetric: 'days',
    freezerExp: 1,
    freezerMetric: 'month'
 });
 
+const chickenTenders = new Products({
+  _id: new mongoose.Types.ObjectId,
+      name: 'Chicken Tenders',
+  category: 'Meat',
+  fridgeExp: 5,
+  fridgeMetric: 'days',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const chickenStrips = new Products({
+  _id: new mongoose.Types.ObjectId,
+      name: 'Chicken Strips',
+  category: 'Meat',
+  fridgeExp: 5,
+  fridgeMetric: 'days',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const chickenWings = new Products({
+  _id: new mongoose.Types.ObjectId,
+      name: 'Chicken Wings',
+  category: 'Meat',
+  fridgeExp: 5,
+  fridgeMetric: 'days',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const chickenSoup = new Products({
+  _id: new mongoose.Types.ObjectId,
+      name: 'Chicken Noodle Soup',
+  category: 'Meat',
+  fridgeExp: 3,
+  fridgeMetric: 'days',
+  freezerExp: 2,
+  freezerMetric: 'months'
+});
+
+const duck = new Products({
+  _id: new mongoose.Types.ObjectId,
+      name: 'Duck',
+  category: 'Meat',
+  fridgeExp: 3,
+  fridgeMetric: 'days',
+  freezerExp: 2,
+  freezerMetric: 'months'
+});
+
 const bacon = new Products({
   _id: new mongoose.Types.ObjectId,
- name: 'bacon',
- category: 'Protein',
+ name: 'Bacon',
+ category: 'Meat',
  fridgeExp: 2,
  fridgeMetric: 'days',
  freezerExp: 1,
@@ -76,27 +273,83 @@ const bacon = new Products({
 
 const pork = new Products({
    _id: new mongoose.Types.ObjectId,
-       name: 'pork',
-   category: 'Protein',
+   name: 'Pork',
+   category: 'Meat',
    fridgeExp: 5,
    fridgeMetric: 'days',
    freezerExp: 4,
    freezerMetric: 'months'
 });
 
+const ham = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Ham',
+  category: 'Meat',
+  fridgeExp: 5,
+  fridgeMetric: 'days',
+  freezerExp: 4,
+  freezerMetric: 'months'
+});
+
+const lamb = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Lamb',
+  category: 'Meat',
+  fridgeExp: 3,
+  fridgeMetric: 'days',
+  freezerExp: 4,
+  freezerMetric: 'months'
+});
+
+const meatballs = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Meatballs',
+  category: 'Meat',
+  fridgeExp: 3,
+  fridgeMetric: 'days',
+  freezerExp: 3,
+  freezerMetric: 'months'
+});
+
+const pastrami = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Pastrami',
+  category: 'Meat',
+  fridgeExp: 5,
+  fridgeMetric: 'days',
+  freezerExp: 3,
+  freezerMetric: 'months'
+});
+
+const turkey = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Turkey',
+  category: 'Meat',
+  fridgeExp: 3,
+  fridgeMetric: 'days',
+  freezerExp: 3,
+  freezerMetric: 'months'
+});
+
+
+
+
+
+
+// Seafood Products
 const fish = new Products({
  _id: new mongoose.Types.ObjectId,
-name: 'fish',
+name: 'Fish',
 category: 'Seafood',
 fridgeExp: 1,
 fridgeMetric: 'day',
-freezerExp: 12,
+freezerExp: 6,
 freezerMetric: 'months'
 });
 
 const crabs = new Products({
   _id: new mongoose.Types.ObjectId,
-      name: 'fresh crab',
+      name: 'Fresh Crab',
   category: 'Seafood',
   fridgeExp: 2,
   fridgeMetric: 'days',
@@ -106,7 +359,7 @@ const crabs = new Products({
 
 const lobster = new Products({
  _id: new mongoose.Types.ObjectId,
-name: 'fresh lobster',
+name: 'Fresh Lobster',
 category: 'Seafood',
 fridgeExp: 3,
 fridgeMetric: 'days',
@@ -116,7 +369,7 @@ freezerMetric: 'months'
 
 const shrimp = new Products({
   _id: new mongoose.Types.ObjectId,
-      name: 'fresh shrimp',
+      name: 'Fresh Shrimp',
   category: 'Seafood',
   fridgeExp: 3,
   fridgeMetric: 'days',
@@ -124,19 +377,62 @@ const shrimp = new Products({
   freezerMetric: 'months'
 });
 
-const eggs = new Products({
+const clamChowder = new Products({
   _id: new mongoose.Types.ObjectId,
- name: 'eggs',
- category: 'Protein',
+ name: 'Clam Chowder',
+ category: 'Seafood',
  fridgeExp: 3,
- fridgeMetric: 'weeks',
- freezerExp: 0,
- freezerMetric: 'day'
+ fridgeMetric: 'days',
+ freezerExp: 4,
+ freezerMetric: 'months'
  });
- 
+
+ const clams = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Clams',
+ category: 'Seafood',
+ fridgeExp: 3,
+ fridgeMetric: 'days',
+ freezerExp: 3,
+ freezerMetric: 'months'
+ });
+
+ const cod = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Cod',
+ category: 'Seafood',
+ fridgeExp: 1,
+ fridgeMetric: 'day',
+ freezerExp: 6,
+ freezerMetric: 'months'
+ });
+
+ const crayFish = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Crayfish',
+ category: 'Seafood',
+ fridgeExp: 3,
+ fridgeMetric: 'day',
+ freezerExp: 4,
+ freezerMetric: 'months'
+ });
+
+ const mahiMahi = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Mahi-Mahi',
+ category: 'Seafood',
+ fridgeExp: 3,
+ fridgeMetric: 'days',
+ freezerExp: 3,
+ freezerMetric: 'months'
+ });
+
+
+
+ // Fruits
  const oranges = new Products({
    _id: new mongoose.Types.ObjectId,
-       name: 'oranges',
+       name: 'Oranges',
    category: 'Fruits',
    fridgeExp: 1,
    fridgeMetric: 'week',
@@ -146,7 +442,7 @@ const eggs = new Products({
  
  const strawberry = new Products({
   _id: new mongoose.Types.ObjectId,
- name: 'strawberries',
+ name: 'Strawberries',
  category: 'Fruits',
  fridgeExp: 1,
  fridgeMetric: 'week',
@@ -156,7 +452,7 @@ const eggs = new Products({
  
  const cherry = new Products({
    _id: new mongoose.Types.ObjectId,
-       name: 'cherries',
+       name: 'Cherries',
    category: 'Fruits',
    fridgeExp: 1,
    fridgeMetric: 'week',
@@ -164,9 +460,23 @@ const eggs = new Products({
    freezerMetric: 'months'
  });
 
+ const apple = new Products({
+  _id: new mongoose.Types.ObjectId,
+      name: 'Apple',
+  category: 'Fruit',
+  fridgeExp: 7,
+  fridgeMetric: 'days',
+  freezerExp: 1,
+  freezerMetric: 'month'
+});
+
+
+
+
+ // Vegetables
  const lettuce = new Products({
   _id: new mongoose.Types.ObjectId,
- name: 'lettuce',
+ name: 'Lettuce',
  category: 'Vegetables',
  fridgeExp: 2,
  fridgeMetric: 'weeks',
@@ -176,7 +486,7 @@ const eggs = new Products({
  
  const mushrooms = new Products({
    _id: new mongoose.Types.ObjectId,
-       name: 'mushrooms',
+       name: 'Mushrooms',
    category: 'Vegetables',
    fridgeExp: 2,
    fridgeMetric: 'weeks',
@@ -186,7 +496,7 @@ const eggs = new Products({
  
  const onions = new Products({
   _id: new mongoose.Types.ObjectId,
- name: 'onions',
+ name: 'Onions',
  category: 'Vegetables',
  fridgeExp: 2,
  fridgeMetric: 'weeks',
@@ -196,7 +506,7 @@ const eggs = new Products({
  
  const potato = new Products({
    _id: new mongoose.Types.ObjectId,
-       name: 'potatos',
+       name: 'Potatos',
    category: 'Vegetables',
    fridgeExp: 4,
    fridgeMetric: 'months',
@@ -204,7 +514,21 @@ const eggs = new Products({
    freezerMetric: 'year'
  });
 
-const productsData = [milk, apple, cheese, hotDogs, beef, chicken, bacon, pork, fish, crabs, lobster, shrimp, eggs, oranges, strawberry, cherry, lettuce, mushrooms, onions, potato];
+
+
+
+ // Condinments
+
+
+
+
+const productsData = [
+  milk, almondMilk, coconutMilk, butterMilk, powderedMilk, eggs, stringCheese, swissCheese, parmesanCheese, romanoCheese, provoloneCheese, butter, yogurt,
+  hotDogs, hamburgers, beef, groundBeef, beefJerky, beefCorned, chicken, chickenTenders, chickenWings, chickenStrips, chickenSoup, duck, bacon, pork, ham, lamb, meatballs, pastrami, turkey,
+  fish, crabs, lobster, shrimp, clamChowder, clams, cod, crayFish, 
+  apple, oranges, strawberry, cherry, 
+  lettuce, mushrooms, onions, potato,
+];
 
 const receipt1 = new Receipts({
   _id: new mongoose.Types.ObjectId,
