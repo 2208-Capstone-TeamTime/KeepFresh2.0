@@ -18,16 +18,15 @@ module.exports = {
     },
 
     storeUser: async (req, res) => {
-        console.log('New user data:', req.body);
 
-            await Users.create({
+        await Users.find({email: req.body.email}).then((data) => data === null)  !== false ? res.status(200).send('User found!') : await Users.create({
              _id: new mongoose.Types.ObjectId,
             displayName: req.body.displayName,
             email: req.body.email
             })
             .then((data) =>res.status(200).send(data))
             .catch(err => {
-                res.status(400).send( {message:err});
+                res.status(500).send('User ALREADY EXISTS')
             })
         },
     
