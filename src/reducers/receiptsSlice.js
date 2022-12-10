@@ -39,6 +39,7 @@ const receiptSlice = createSlice({
       } else {
         let newItem = { ...action.payload };
         newItem.quantity = 1;
+        newItem.fridge = true
         state.products.push(newItem);
       }
       return state;
@@ -51,6 +52,15 @@ const receiptSlice = createSlice({
       }
       return state;
     },
+
+    changeProperty: (state, action) => {
+      const item = state.productsId.find((p) => p === action.payload.name)
+      if (item.fridge === true){
+        item.fridge = false
+      } else {
+        item.fridge = true
+      }
+    }
   },
   extraReducers: (builder) => {
     builder.addCase(fetchReceipts.fulfilled, (state, action) => {
@@ -82,3 +92,12 @@ export const selectExp = (state) => {
 export const { add2Receipt, deleteItem } = receiptSlice.actions;
 
 export default receiptSlice.reducer;
+
+
+
+/**
+ * when we click the products button it would return product object and render the name also update property default to fridge
+ * turnary operation to check if property would change to freezer
+ * after clicking the calc exp button it would update the exp properties to calculate base on the turnary and switch to the exp page and render based on the condition.
+ * add to receipt button would be on the exp page and create new receipt entry that would be tied to the current user and it update the current state object to the receipt db properity of user receipt
+ */

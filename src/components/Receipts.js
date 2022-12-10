@@ -21,6 +21,23 @@ const Receipt = () => {
         navigate('/exp')
     }
 
+    const changePropertyValueFridge = (item) => {
+        document.getElementById("fridge").checked = true
+        document.getElementById("freezer").checked = false
+        item.fridge = true
+        console.log(item.fridge)
+        return item
+    }
+
+    const changePropertyValueFreezer = (item) => {
+        document.getElementById("fridge").checked = false
+        document.getElementById("freezer").checked = true
+        item.fridge = false
+        console.log(item.fridge)
+        return item
+
+    }
+
     console.log(receipt);
     return (
         <>
@@ -32,15 +49,22 @@ const Receipt = () => {
                     {receipt? receipt.map((item) => (
                         <div key={item.name}>
                             {item.name}
-                            {/* <button onClick={deleteItem}>delete</button>
-
-                            <input type="radio" id={item.name}
-                                name='fridge' checked />
+                            {/* <button onClick={deleteItem}>delete</button> */}
+                            <input type="checkbox" id="fridge"
+                                name='fridge' value={item.fridge} onClick={(item) => {
+                                    changePropertyValueFridge(item)
+                                    console.log("update", receipt)
+                                    }
+                                }/>
                             <label for={item.name}>fridge</label>
 
-                            <input type="radio" id={item.name}
-                                name='freezer' />
-                            <label for={item.name}>freezer</label> */}
+                            <input type="checkbox" id="freezer"
+                                name='freezer' value={item.fridge} onClick={(item) => {
+                                    changePropertyValueFreezer(item)
+                                    console.log("update", receipt)
+                                    }
+                                }/>
+                            <label for={item.name}>freezer</label>
                         </div>)
                     ): ''}</div>
 
