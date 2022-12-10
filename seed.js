@@ -427,6 +427,66 @@ const clamChowder = new Products({
  freezerMetric: 'months'
  });
 
+const mussels = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Mussels',
+ category: 'Seafood',
+ fridgeExp: 3,
+ fridgeMetric: 'days',
+ freezerExp: 3,
+ freezerMetric: 'months'
+ });
+
+ const mackerel = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Mackerel',
+ category: 'Seafood',
+ fridgeExp: 2,
+ fridgeMetric: 'days',
+ freezerExp: 2,
+ freezerMetric: 'months'
+ });
+
+ const lox = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Lox',
+ category: 'Seafood',
+ fridgeExp: 2,
+ fridgeMetric: 'weeks',
+ freezerExp: 2,
+ freezerMetric: 'months'
+ });
+
+ const oysters = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Oysters',
+ category: 'Seafood',
+ fridgeExp: 2,
+ fridgeMetric: 'days',
+ freezerExp: 2,
+ freezerMetric: 'months'
+ });
+
+ const salmon = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Fresh Salmon',
+ category: 'Seafood',
+ fridgeExp: 2,
+ fridgeMetric: 'days',
+ freezerExp: 2,
+ freezerMetric: 'months'
+ });
+
+ const salmonCooked = new Products({
+  _id: new mongoose.Types.ObjectId,
+ name: 'Coocked Salmon',
+ category: 'Seafood',
+ fridgeExp: 3,
+ fridgeMetric: 'days',
+ freezerExp: 4,
+ freezerMetric: 'months'
+ });
+
 
 
  // Fruits
@@ -525,7 +585,7 @@ const clamChowder = new Products({
 const productsData = [
   milk, almondMilk, coconutMilk, butterMilk, powderedMilk, eggs, stringCheese, swissCheese, parmesanCheese, romanoCheese, provoloneCheese, butter, yogurt,
   hotDogs, hamburgers, beef, groundBeef, beefJerky, beefCorned, chicken, chickenTenders, chickenWings, chickenStrips, chickenSoup, duck, bacon, pork, ham, lamb, meatballs, pastrami, turkey,
-  fish, crabs, lobster, shrimp, clamChowder, clams, cod, crayFish, 
+  fish, crabs, lobster, shrimp, clamChowder, clams, cod, crayFish, mahiMahi, mussels, mackerel, lox, oysters, salmon, salmonCooked,
   apple, oranges, strawberry, cherry, 
   lettuce, mushrooms, onions, potato,
 ];
