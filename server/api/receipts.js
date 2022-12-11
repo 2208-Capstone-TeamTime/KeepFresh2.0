@@ -5,11 +5,8 @@ const ReceiptController = require("../controllers/receiptController");
 
 router.use(express.json())
 
-//get all receipts 
-router.get("/", ReceiptController.findAllReceipts)
-
 //get all receipts for a user by userId
-router.get('/:userId', ReceiptController.findReceiptbyUserId);
+router.get('/:userId', ReceiptController.findReceiptsbyUserId);
 
 //store a receipt by userId
 router.post('/:userId', ReceiptController.createReceipt);

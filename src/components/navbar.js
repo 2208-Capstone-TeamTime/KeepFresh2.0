@@ -2,10 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Signin from './signin';
 
+import { useSelector } from 'react-redux';
+
 
 const linkStyle = { textDecoration: 'none', color: 'white' };
 const Navbar = () => {
-
+    
     return (
         <><div>
             <NavLink style={linkStyle} to=''>
@@ -13,7 +15,7 @@ const Navbar = () => {
             <div>
                 <Signin/>
                 
-                <NavLink style={linkStyle} to='/find'>Search</NavLink>
+                <NavLink style={linkStyle} to='/history'>View History</NavLink>
                 <NavLink style={linkStyle} to='/aboutUs'>About Us</NavLink>
             </div>
         </>

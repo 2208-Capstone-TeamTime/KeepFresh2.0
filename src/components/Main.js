@@ -3,6 +3,7 @@ import { Routes, Route, NavLink } from 'react-router-dom'
 import Receipt from './Receipts'
 import Products from './Products'
 import Expirations from './Expirations'
+import History from './History'
 import Navbar from './navbar'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
@@ -28,6 +29,10 @@ const Main = () => {
             </Route>
             <Route path='/exp' element={<>
               <Expirations />
+            </>}>
+            </Route>
+            <Route path='/history' element={<>
+              <History />
             </>}>
             </Route>
 

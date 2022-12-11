@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { selectReceipt, fetchExpProducts, fetchReceipts } from "../reducers/receiptsSlice";
-import changeProperty,{ addReceipt} from "../reducers/receiptsSlice";
+import { selectReceipt, fetchExpProducts } from "../reducers/receiptsSlice";
+import changeProperty,{ deleteItem} from "../reducers/receiptsSlice";
 
 
 
@@ -11,14 +11,14 @@ const Receipt = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        dispatch(fetchReceipts())
-    }, []);
+  
 
     const fetchExp = (item) => {
         dispatch(fetchExpProducts(item.name))
         navigate('/exp')
     }
+
+    const del = (item) => dispatch(deleteItem(item))
 
     // const changePropertyValueFridge = (name) => {
     //     // document.getElementById(`${item.name}Fridge`).checked = true
@@ -50,7 +50,7 @@ const Receipt = () => {
                     {receipt? receipt.map((item) => (
                         <div key={item.name}>
                             {item.name}
-
+                            <div><button onClick={()=>{del(item)}}>-</button></div>
                             {/* <label>
                             <input type="checkbox" id= {item.name}
                                  
@@ -83,7 +83,7 @@ const Receipt = () => {
                 <button onClick={() => receipt.map((item) => fetchExp(item)
                 // createReceipt()
                 )}>Calculate Expirations</button>
-                <button onClick={addReceipt()}>Add Receipt</button>
+                {/* <button onClick={}>Add Receipt</button> */}
             </div>
         </>
     )

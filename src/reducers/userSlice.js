@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
 const initialState = {}
 
 export const storeUserInfo = createAsyncThunk("storeUserInfo", async (payload) => {
@@ -18,7 +19,12 @@ export const storeUserInfo = createAsyncThunk("storeUserInfo", async (payload) =
 const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers:{},
+    reducers:{
+    signOut : (state,action) =>{
+            state = action.payload;
+            return state;
+        }
+    },
     extraReducers: (builder) => {
         builder.addCase(storeUserInfo.fulfilled, (state,action) => {
             state = action.payload;
@@ -29,7 +35,6 @@ const userSlice = createSlice({
 });
 
 export const currentUser = (state) => {
-    console.log('state',state);
     return state.user
 };
 

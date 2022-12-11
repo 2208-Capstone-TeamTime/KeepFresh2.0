@@ -2,20 +2,7 @@ const mongoose  = require("mongoose");
 const Receipts = require("../models/Receipts")
 
 module.exports = {
-  findAllReceipts: async (req, res) => {
-    Receipts.find({})
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving receipts."
-        });
-      });
-  },
-
-  findReceiptbyUserId: async (req, res, next) => {
+  findReceiptsbyUserId: async (req, res, next) => {
     try {
       const data = await Receipts.find({ userId: req.params.userId })
       res.send(data);

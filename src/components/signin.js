@@ -1,23 +1,11 @@
 import React, { useEffect } from 'react';
 import   { storeUserInfo, currentUser} from '../reducers/userSlice';
-// import {GoogleButton} from 'react-google-button'
-// import { GoogleLogin } from '@react-oauth/google';
-// import { hasGrantedAllScopesGoogle } from '@react-oauth/google';
 import jwt_decode from "jwt-decode"
 import { useDispatch, useSelector } from 'react-redux';
-// import {connect} from '../../calendar'
-
-// const hasAccess = hasGrantedAllScopesGoogle(
-//   tokenResponse,
-//   'openid',
-//   'https://www.googleapis.com/auth/userinfo.profile',
-//   '.../auth/userinfo.email',
-//  ' .../auth/calendar'
-// );
 
 
 const Signin = () => {
-    const user  = useSelector(currentUser);
+    const user = useSelector(currentUser);
     const dispatch = useDispatch();
 
     function handleCallbackResponse(response){
@@ -30,8 +18,8 @@ const Signin = () => {
         
        
         dispatch(storeUserInfo(newUser));
-
-        console.log('current user', user);
+        document.getElementById('signInDiv').hidden = true;
+        document.getElementById('signOut').hidden = false;
     };
 
     useEffect(() => {
@@ -47,12 +35,15 @@ const Signin = () => {
         )
     }, [])
 
+    const setUser = () =>{
+        window.location.reload();
+    }
     
     return (
         <>
-         <div id='signInDiv'
+        <div id='signInDiv'/> 
+      <button id='signOut' onClick={() =>setUser()}hidden>Sign Out</button>
          
-         ></div>
          </> 
     )
 }

@@ -1,18 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
 const initialState = {
   products: [],
-  exp: []
+  exp: [],
+  pastReceipts:[]
 }
 
-export const fetchReceipts = createAsyncThunk('fetchReceipts', async () => {
-  const { data } = await axios.get('/api/receipts');
+export const findReceiptsbyUserId = createAsyncThunk('findReceiptsbyUserId', async (payload) => {
+  const { data } = await axios.get(`/api/receipts/${payload._id}`);
   return data;
 })
 
-export const addReceipt = createAsyncThunk('addReceipt', async (payload) => {
-  const { data } = await axios.post('/api/receipts', payload)
+export const createReceipt = createAsyncThunk('createReceipt', async (payload) => {
+  console.log('store receipt for:',payload);
+  const { data } = await axios.post(`/api/receipts/${payload.id}`, payload.exp)
   return data
 })
 
@@ -46,8 +49,8 @@ const receiptSlice = createSlice({
     deleteItem: (state, action) => {
       const item = state.products.find((p) => p.name === action.payload.name)
       if (item) {
-        let idx = item.findIndex();
-        state.products.splice(idx, 1);
+        // let idx = indexOf(item);
+        state.products.splice(state.products[item], 1);
       }
       return state;
     },
@@ -70,11 +73,15 @@ const receiptSlice = createSlice({
     }
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchReceipts.fulfilled, (state, action) => {
-     
+    builder.addCase(findReceiptsbyUserId.fulfilled, (state, action) => {
+      console.log('History', action.payload);
+     state.pastReceipts = action.payload
     }),
-      builder.addCase(addReceipt.fulfilled, (state, action) => {
-        state.products.push(action.payload);
+      builder.addCase(createReceipt.fulfilled, (state, action) => {
+        console.log('Stored! \N Emptying Receipt....');
+        state.pastReceipts.push(action.payload);
+        state.exp = initialState.exp;
+        return state;
       }),
       builder.addCase(fetchExpProducts.fulfilled, (state, action) => {
         const item = state.products.find((p) => p.name === action.payload.food);
@@ -90,6 +97,10 @@ const receiptSlice = createSlice({
 export const selectReceipt = (state) => {
   return state.receipt.products;
 };
+
+export const selectPast = (state) => {
+  return state.receipt.pastReceipts;
+}
 
 export const selectExp = (state) => {
   console.log('EXP ARR:', state.receipt.exp);
