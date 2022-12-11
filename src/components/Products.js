@@ -40,6 +40,8 @@ const Products = () => {
                     <button onClick={() => handleClick('Dairy')}>Dairy</button>
                     <button onClick={() => handleClick('Meat')}>Meats</button>
                     <button onClick={() => handleClick('Seafood')}>Seafood</button>
+                    <button onClick={() => handleClick('Nuts and Grains')}>Nuts and Grains</button>
+                    <button onClick={() => handleClick('Condiments')}>Condiments</button>
 
                     {filteredItems.map(item => (
                         <div key={item.id}>{<div className="products">
