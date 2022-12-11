@@ -1148,9 +1148,9 @@ const ketchup = new Products({
   fridgeMetric: 'months',
   freezerExp: 12,
   freezerMetric: 'months'
-  });
-  
-  const mustard = new Products({
+});
+
+const mustard = new Products({
   _id: new mongoose.Types.ObjectId,
   name: 'Mustard',
   category: 'Condiments',
@@ -1158,9 +1158,9 @@ const ketchup = new Products({
   fridgeMetric: 'months',
   freezerExp: 12,
   freezerMetric: 'months'
-  });
-  
-  const mayonnaise = new Products({
+});
+
+const mayonnaise = new Products({
   _id: new mongoose.Types.ObjectId,
   name: 'Mayonnaise',
   category: 'Condiments',
@@ -1168,9 +1168,9 @@ const ketchup = new Products({
   fridgeMetric: 'months',
   freezerExp: 12,
   freezerMetric: 'months'
-  });
-  
-  const soySauce = new Products({
+});
+
+const soySauce = new Products({
   _id: new mongoose.Types.ObjectId,
   name: 'Soy Sauce',
   category: 'Condiments',
@@ -1178,9 +1178,9 @@ const ketchup = new Products({
   fridgeMetric: 'months',
   freezerExp: 12,
   freezerMetric: 'months'
-  });
-  
-  const hotSauce = new Products({
+});
+
+const hotSauce = new Products({
   _id: new mongoose.Types.ObjectId,
   name: 'Hot Sauce',
   category: 'Condiments',
@@ -1188,12 +1188,117 @@ const ketchup = new Products({
   fridgeMetric: 'months',
   freezerExp: 12,
   freezerMetric: 'months'
-  });
-  
-  
-  
-  
-  
+});
+
+const aioli = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Aioli',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const bbqsauce = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'BBQ Sauce',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const chilioil = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Chili Oil',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const crushedPepper = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Crushed Pepper',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const garlicSauce = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Garlic Sauce',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const honey = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'honey',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const oliveoil = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Olive Oil',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const salsa = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Salsa',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'days',
+  freezerExp: 12,
+  freezerMetric: 'weeks'
+});
+
+const sourCream = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Sour Cream',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const sriracha = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Sriracha',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const teriyaki = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Teriyahi',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
 
 
 
@@ -1204,7 +1309,7 @@ const productsData = [
   apple, apricots, avocados, bananas, blackberries, blueberries, cantaloupe, clementines, cranberries, grapes, grapefruit, honeydew, kiwi, lemons, mangos, oranges, peaches, pears, strawberry, cherries,
   lettuce, mushrooms, onions, potato, carrots, broccoli, spinach, greenBeans, peas, asparagus, bellPeppers, cauliflower, corn, eggplant, garlic, onion, leek, shallot, scallion, chive,
   almond, walnut, oat, quinoa, barley, pecan, pistachio, rice, wheat, cashew, hazelnut, rye, spelt, millet, brazilNut, macadamiaNut, bulgur, teff, wildRice,
-  ketchup, mustard, mayonnaise, soySauce, hotSauce, 
+  ketchup, mustard, mayonnaise, soySauce, hotSauce, aioli, bbqsauce, chilioil, crushedPepper, garlicSauce, oliveoil, honey, salsa, sourCream, sriracha, teriyaki
 ];
 
 const receipt1 = new Receipts({
