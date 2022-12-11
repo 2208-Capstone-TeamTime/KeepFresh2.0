@@ -33,19 +33,18 @@ const receiptSlice = createSlice({
   initialState,
   reducers: {
     add2Receipt: (state, action) => {
-      const item = state.products.find((p) => p === action.payload.name);
+      const item = state.products.find((p) => p.name === action.payload.name);
       if (item) {
         item.quantity++;
       } else {
         let newItem = { ...action.payload };
         newItem.quantity = 1;
-        newItem.fridge = true
         state.products.push(newItem);
       }
       return state;
     },
     deleteItem: (state, action) => {
-      const item = state.products.find((p) => p === action.payload.name)
+      const item = state.products.find((p) => p.name === action.payload.name)
       if (item) {
         let idx = item.findIndex();
         state.products.splice(idx, 1);
@@ -54,12 +53,20 @@ const receiptSlice = createSlice({
     },
 
     changeProperty: (state, action) => {
-      const item = state.productsId.find((p) => p === action.payload.name)
-      if (item.fridge === true){
-        item.fridge = false
-      } else {
-        item.fridge = true
+      console.log('change prop');
+      const item = state.products.find((p) => p.name === action.payload.name)
+
+      if (item.fridge === undefined) {
+        let idx = item.findIndex();
+
+        let newItem = {...item}
+        newItem.fridge = true;
+        state.products.splice(idx, 1, newItem);
+      }else{
+        item.fridge = false;
       }
+
+      return state;
     }
   },
   extraReducers: (builder) => {

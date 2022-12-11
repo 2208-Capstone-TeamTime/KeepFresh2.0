@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectExp} from '../reducers/receiptsSlice';
-import { fetchExpProducts } from "../reducers/receiptsSlice";
 
 const Expirations = () => {
     const Items = useSelector(selectExp);
@@ -18,6 +17,7 @@ const Expirations = () => {
                 {`${item.name}- ${item.fridgeExp} & ${item.freezerExp}`}
             </div>
         ))}
+        <button >Store Expirations</button>
         </div>
         </>
     )
