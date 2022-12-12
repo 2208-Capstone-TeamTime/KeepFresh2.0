@@ -17,17 +17,12 @@ module.exports = {
             });
     },
 
-    storeUser: async (req, res) => {
-
-        await Users.find({email: req.body.email}).then((data) => data === null)  !== false ? res.status(200).send('User found!') : await Users.create({
-             _id: new mongoose.Types.ObjectId,
+    storeUser: (req, res) => {
+        Users.findOneAndUpdate({ email: req.body.email }, {
             displayName: req.body.displayName,
             email: req.body.email
-            })
-            .then((data) =>res.status(200).send(data))
-            .catch(err => {
-                res.status(500).send('User ALREADY EXISTS')
-            })
-        },
-    
-    };
+        }, { upsert: true, new: true }).then((data) => res.status(200).send(data));
+    },
+
+};
+
