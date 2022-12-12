@@ -1292,7 +1292,7 @@ const sriracha = new Products({
 
 const teriyaki = new Products({
   _id: new mongoose.Types.ObjectId,
-  name: 'Teriyahi',
+  name: 'Teriyaki',
   category: 'Condiments',
   fridgeExp: 6,
   fridgeMetric: 'months',
