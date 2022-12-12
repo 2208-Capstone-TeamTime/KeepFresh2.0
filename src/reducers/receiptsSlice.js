@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import produce from "immer"
 
 
 const initialState = {
@@ -30,7 +31,6 @@ export const fetchExpProducts = createAsyncThunk("fetchExpProducts", async (payl
 })
 
 
-
 const receiptSlice = createSlice({
   name: "receipt",
   initialState,
@@ -40,9 +40,11 @@ const receiptSlice = createSlice({
       if (item) {
         item.quantity++;
       } else {
-        let newItem = { ...action.payload };
+        let newItem = { ...action.payload }
         newItem.quantity = 1;
+        newItem.fridge = true;
         state.products.push(newItem);
+        console.log(newItem)
       }
       return state;
     },
@@ -54,23 +56,33 @@ const receiptSlice = createSlice({
       }
       return state;
     },
+      changeValue: (state, action) => {
+        const item = state.products.find((p) => p.name === action.payload.name);
 
-    changeProperty: (state, action) => {
-      console.log('change prop');
-      const item = state.products.find((p) => p.name === action.payload.name)
+        if(item.fridge){
+          item.fridge = false
+        } else {
+          let newItem = { ...action.payload }
+          newItem.fridge = true
+          state.products.push(newItem);
+        }
+        return state
+    },
+    // addProperty: (state, action) => {
+    //   const item = state.products.find((p) => p.name === action.payload.name);
 
-      if (item.fridge === undefined) {
-        let idx = item.findIndex();
+      
+    //   if (item.fridge) {
+    //     item.fridge = false;
+    //   } else {
+    //     let newItem = { ...action.payload };
+    //     newItem.fridge = true
+    //     state.products.push(newItem);
+    //   }
+    //   console.log('change', state)
+    //   return state;
+    // },
 
-        let newItem = {...item}
-        newItem.fridge = true;
-        state.products.splice(idx, 1, newItem);
-      }else{
-        item.fridge = false;
-      }
-
-      return state;
-    }
   },
   extraReducers: (builder) => {
     builder.addCase(findReceiptsbyUserId.fulfilled, (state, action) => {
@@ -94,7 +106,7 @@ const receiptSlice = createSlice({
   }
 });
 
-export const selectReceipt = (state) => {
+export let selectReceipt = (state) => {
   return state.receipt.products;
 };
 
@@ -107,7 +119,7 @@ export const selectExp = (state) => {
   return state.receipt.exp;
 };
 
-export const { add2Receipt, deleteItem } = receiptSlice.actions;
+export const { add2Receipt, deleteItem, changeValue } = receiptSlice.actions;
 
 export default receiptSlice.reducer;
 

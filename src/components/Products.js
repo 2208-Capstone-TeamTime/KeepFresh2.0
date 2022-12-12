@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { add2Receipt } from "../reducers/receiptsSlice";
+import React, {useEffect, useState} from "react";
+import { add2Receipt, addProperty } from "../reducers/receiptsSlice";
 import { selectProducts, fetchProducts } from "../reducers/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 

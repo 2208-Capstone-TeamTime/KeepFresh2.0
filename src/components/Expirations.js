@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { createReceipt, findReceiptsbyUserId, selectExp } from '../reducers/receiptsSlice';
@@ -22,27 +22,50 @@ const Expirations = () => {
         navigate('/history');
     }
 
+    const addFridge = ((item) => {
+        const fridgeStr = item.fridgeExp
+        console.log('fridgeStr', fridgeStr)
+
+        const textElement = document.getElementById(`${item.name}`)
+
+        textElement.innerHTML = fridgeStr
+    })
+
+    const addFreezer = ((item) => {
+        const freezerStr = item.freezerExp
+        console.log('freezerStr', freezerStr)
+
+        const textElement = document.getElementById(`${item.name}`)
+
+        textElement.innerHTML = freezerStr
+    })
+
     return (
         <>
             <div className="expirations">
                     <h2>Expirations</h2>
-                    </div>
-                <div>
-                {!Items ? (<>
+            </div>
+
+            <div>
+                {!Items ? 
+                (
+                <>
                     <div>No expirations to display</div>
                 </>
                 )
-                    : Items.map((item) => (
+                    : 
+                    Items.map((item) => (
+                        <>
                         //call return exp 
                         <div key={item.name}>
                             <h3>{item.name}</h3>
-                            <div>
-                                <h4>Fridge:</h4>
-                                <p>{item.fridgeExp}</p></div>
-                            <div>
-                                <h4>Freezer:</h4>
-                                <p>{item.freezerExp}</p></div>
+                            <h2 id={item.name} >Fridge Exp</h2>
                         </div>
+                        <div>
+                        <button onClick={() => {addFridge(item)}}>Fridge</button>
+                        <button onClick={() => {addFreezer(item)}}>Freezer</button>
+                        </div>
+                        </>
                     ))}
 
                     <div>
