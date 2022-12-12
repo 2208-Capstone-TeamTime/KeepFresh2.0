@@ -182,7 +182,7 @@ const groundBeef = new Products({
 
 const beefJerky = new Products({
   _id: new mongoose.Types.ObjectId,
-  name: 'Beef',
+  name: 'Beef Jerky',
   category: 'Meat',
   fridgeExp: 3,
   fridgeMetric: 'months',
@@ -1345,7 +1345,7 @@ const receipt5 = new Receipts({
 const receipt6 = new Receipts({
   _id: new mongoose.Types.ObjectId,
   transaction: 6,
-  productsId: [apple._id, apple._id, stringCheese._id, hotDogs._id, beef._id, fish._id, eggs._id, shrimp._id, eggs._id, strawberry._id, cherries._id, lettuce._id, mushrooms._id, onions._id]
+  productsId: [apple._id, apple._id, stringCheese._id, hotDogs._id, beefJerky._id, fish._id, eggs._id, shrimp._id, eggs._id, strawberry._id, cherries._id, lettuce._id, mushrooms._id, onions._id]
 })
 
 const receiptsData = [receipt1, receipt2, receipt3, receipt4, receipt5, receipt6];
