@@ -20,6 +20,7 @@ const Signin = () => {
     const user  = useSelector(currentUser);
     const dispatch = useDispatch();
 
+
     function handleCallbackResponse(response){
         const userObject = jwt_decode(response.credential);
 
@@ -41,12 +42,11 @@ const Signin = () => {
             callback: handleCallbackResponse
         })
 
-        google.accounts.id.renderButton(
-            document.getElementById("signInDiv"),
-            {theme: "outline", size: "large"}
-        )
-    }, [])
-
+         google.accounts.id.renderButton(
+             document.getElementById("signInDiv"),
+             {theme: "outline", size: "large"}
+         )
+     }, [])
     
     return (
         <>
@@ -55,6 +55,7 @@ const Signin = () => {
          ></div>
          </> 
     )
+
 }
 
 export default Signin
