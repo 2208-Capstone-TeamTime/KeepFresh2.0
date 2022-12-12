@@ -1333,7 +1333,7 @@ const receipt3 = new Receipts({
 const receipt4 = new Receipts({
   _id: new mongoose.Types.ObjectId,
   transaction: 4,
-  productsId: [cheese._id, apple._id, hotDogs._id, beef._id, chicken._id, oranges._id, lettuce._id, shrimp._id]
+  productsId: [stringCheese._id, apple._id, hotDogs._id, beef._id, chicken._id, oranges._id, lettuce._id, shrimp._id]
 });
 
 const receipt5 = new Receipts({
