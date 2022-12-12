@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const connectDB = require('./server/config/db');
 const Products = require('./server/models/Products');
 const Receipts = require('./server/models/Receipts');
+const Users = require('./server/models/Users')
 
 
 
-//  Dairy Products
 const milk = new Products({
   _id: new mongoose.Types.ObjectId,
   name: 'Milk',
@@ -1351,6 +1351,7 @@ const receipt6 = new Receipts({
 const receiptsData = [receipt1, receipt2, receipt3, receipt4, receipt5, receipt6];
 
 const seed = async () => {
+
   try {
     await connectDB();
     await Products.deleteMany({});

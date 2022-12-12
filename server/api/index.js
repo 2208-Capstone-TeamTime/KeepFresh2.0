@@ -10,6 +10,9 @@ router.use("/products", require("./products"));
 
 router.use("/receipts", require("./receipts"));
 
+router.use("/users", require("./users"));
+
+
 
 //If route is not set up properly the this error will trigger
 router.use((req, res, next) => {
