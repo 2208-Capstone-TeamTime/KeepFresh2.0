@@ -8,6 +8,7 @@ const Signin = () => {
     const user = useSelector(currentUser);
     const dispatch = useDispatch();
 
+
     function handleCallbackResponse(response){
         const userObject = jwt_decode(response.credential);
 
@@ -38,6 +39,7 @@ const Signin = () => {
     const setUser = () =>{
         window.location.reload();
     }
+
     
     return (
         <>
@@ -46,6 +48,7 @@ const Signin = () => {
          
          </> 
     )
+
 }
 
 export default Signin
