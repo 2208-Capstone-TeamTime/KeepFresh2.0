@@ -1339,13 +1339,13 @@ const receipt4 = new Receipts({
 const receipt5 = new Receipts({
   _id: new mongoose.Types.ObjectId,
   transaction: 5,
-  productsId: [milk._id, pork._id, fish._id, crabs._id, bacon._id, oranges._id, cherry._id, lettuce._id, onions._id, potato._id, eggs._id, lobster._id, cheese._id],
+  productsId: [milk._id, pork._id, fish._id, crabs._id, bacon._id, oranges._id, cherries._id, lettuce._id, onions._id, potato._id, eggs._id, lobster._id, stringCheese._id],
 })
 
 const receipt6 = new Receipts({
   _id: new mongoose.Types.ObjectId,
   transaction: 6,
-  productsId: [apple._id, apple._id, cheese._id, hotDogs._id, beef._id, fish._id, eggs._id, shrimp._id, eggs._id, strawberry._id, cherry._id, lettuce._id, mushrooms._id, onions._id]
+  productsId: [apple._id, apple._id, stringCheese._id, hotDogs._id, beef._id, fish._id, eggs._id, shrimp._id, eggs._id, strawberry._id, cherries._id, lettuce._id, mushrooms._id, onions._id]
 })
 
 const receiptsData = [receipt1, receipt2, receipt3, receipt4, receipt5, receipt6];
