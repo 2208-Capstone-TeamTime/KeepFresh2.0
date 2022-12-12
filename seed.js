@@ -784,6 +784,451 @@ const potato = new Products({
   freezerMetric: 'year'
 });
 
+const carrots = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Carrots',
+  category: 'Vegetables',
+  fridgeExp: 2,
+  fridgeMetric: 'weeks',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const broccoli = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Broccoli',
+  category: 'Vegetables',
+  fridgeExp: 3,
+  fridgeMetric: 'weeks',
+  freezerExp: 4,
+  freezerMetric: 'months'
+});
+
+const spinach = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Spinach',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'week',
+  freezerExp: 2,
+  freezerMetric: 'months'
+});
+
+const greenBeans = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Green beans',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'week',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const peas = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Peas',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'week',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const asparagus = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Asparagus',
+  category: 'Vegetables',
+  fridgeExp: 3,
+  fridgeMetric: 'days',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const bellPeppers = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Bell Peppers',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'week',
+  freezerExp: 10,
+  freezerMetric: 'months'
+});
+
+const cauliflower = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Cauliflower',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'week',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const corn = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Corn',
+  category: 'Vegetables',
+  fridgeExp: 3,
+  fridgeMetric: 'days',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const eggplant = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Eggplant',
+  category: 'Vegetables',
+  fridgeExp: 5,
+  fridgeMetric: 'days',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const garlic = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Garlic',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'month',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const onion = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Onion',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'month',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const leek = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Leek',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'month',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const shallot = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Shallot',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'month',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const scallion = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Scallion',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'month',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+const chive = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Chive',
+  category: 'Vegetables',
+  fridgeExp: 1,
+  fridgeMetric: 'month',
+  freezerExp: 8,
+  freezerMetric: 'months'
+});
+
+
+
+
+// Nuts and Grains
+const almond = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Almond',
+  category: 'Nuts and Grains',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const walnut = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Walnut',
+  category: 'Nuts and Grains',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const oat = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Oat',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const quinoa = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Quinoa',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const barley = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Barley',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const pecan = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Pecan',
+  category: 'Nuts and Grains',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const pistachio = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Pistachio',
+  category: 'Nuts and Grains',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const rice = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Rice',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const wheat = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Wheat',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const cashew = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Cashew',
+  category: 'Nuts and Grains',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const hazelnut = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Hazelnut',
+  category: 'Nuts and Grains',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const rye = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Rye',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const spelt = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Spelt',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const millet = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Millet',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const brazilNut = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Brazil Nut',
+  category: 'Nuts and Grains',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const macadamiaNut = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Macadamia Nut',
+  category: 'Nuts and Grains',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const bulgur = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Bulgur',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const teff = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Teff',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+const wildRice = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Wild Rice',
+  category: 'Nuts and Grains',
+  fridgeExp: 3,
+  fridgeMetric: 'months',
+  freezerExp: 6,
+  freezerMetric: 'months'
+});
+
+
+// Condiments
+const ketchup = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Ketchup',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const mustard = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Mustard',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const mayonnaise = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Mayonnaise',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const soySauce = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Soy Sauce',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const hotSauce = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Hot Sauce',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const aioli = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Aioli',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const bbqsauce = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'BBQ Sauce',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const chilioil = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Chili Oil',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const crushedPepper = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Crushed Pepper',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
 
 const garlicSauce = new Products({
   _id: new mongoose.Types.ObjectId,
@@ -825,7 +1270,25 @@ const salsa = new Products({
   freezerMetric: 'weeks'
 });
 
- // Condinments
+const sourCream = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Sour Cream',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
+
+const sriracha = new Products({
+  _id: new mongoose.Types.ObjectId,
+  name: 'Sriracha',
+  category: 'Condiments',
+  fridgeExp: 6,
+  fridgeMetric: 'months',
+  freezerExp: 12,
+  freezerMetric: 'months'
+});
 
 const teriyaki = new Products({
   _id: new mongoose.Types.ObjectId,
@@ -893,13 +1356,13 @@ const seed = async () => {
     await Products.deleteMany({});
     await Products.insertMany(productsData)
 
-      await Receipts.deleteMany({});
-      await Receipts.insertMany(receiptsData)
-      
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    await Receipts.deleteMany({});
+    await Receipts.insertMany(receiptsData)
 
-  seed()
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+seed()
   //DB KEPT OPEN FOR CLOUD ACCESS -_-
