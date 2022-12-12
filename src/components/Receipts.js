@@ -1,13 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
+import { combineReducers } from "@reduxjs/toolkit";
 import { selectReceipt, fetchExpProducts, fetchReceipts } from "../reducers/receiptsSlice";
-import { addReceipt, deleteItem } from "../reducers/receiptsSlice";
+import { addReceipt, deleteItem, changeValue } from "../reducers/receiptsSlice";
+import { selectProducts } from "../reducers/productSlice";
 
 
 
 const Receipt = () => {
     const receipt = useSelector(selectReceipt);
+    
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -21,22 +25,12 @@ const Receipt = () => {
         navigate('/exp')
     }
 
-    const changePropertyValueFridge = (item) => {
-        document.getElementById("fridge").checked = true
-        document.getElementById("freezer").checked = false
-        item.fridge = true
-        console.log(item.fridge)
-        return item
+    const toggleValue = (item) => {
+        dispatch(changeValue(item))
+        console.log('state', receipt)
+        console.log('changing', product.fridge);
     }
 
-    const changePropertyValueFreezer = (item) => {
-        document.getElementById("fridge").checked = false
-        document.getElementById("freezer").checked = true
-        item.fridge = false
-        console.log(item.fridge)
-        return item
-
-    }
 
     console.log(receipt);
     return (
@@ -46,31 +40,22 @@ const Receipt = () => {
                     <h2>Receipt</h2>
                 </div>
                 <div className="receipt-items">
-                    {receipt? receipt.map((item) => (
+                    {receipt ? receipt.map((item) => (
                         <div key={item.name}>
                             {item.name}
                             {/* <button onClick={deleteItem}>delete</button> */}
-                            <input type="checkbox" id="fridge"
-                                name='fridge' value={item.fridge} onClick={(item) => {
-                                    changePropertyValueFridge(item)
-                                    console.log("update", receipt)
-                                    }
-                                }/>
-                            <label for={item.name}>fridge</label>
-
-                            <input type="checkbox" id="freezer"
-                                name='freezer' value={item.fridge} onClick={(item) => {
-                                    changePropertyValueFreezer(item)
-                                    console.log("update", receipt)
-                                    }
-                                }/>
-                            <label for={item.name}>freezer</label>
-                        </div>)
-                    ): ''}</div>
+                            {/* {console.log("receipt", receipt)}
+                            {console.log("product", product)} */}
+                            <button onClick={() => {toggleValue(item)}}></button>
+                        </div>
+                        )
+                    
+                    ) : ''}
+                </div>
 
                 {/* <button>Get All Calendar Notifications</button> */}
                 <button onClick={() => receipt.map((item) => fetchExp(item)
-                // createReceipt()
+                    // createReceipt()
                 )}>Calculate Expirations</button>
                 <button onClick={addReceipt()}>Add Receipt</button>
             </div>
