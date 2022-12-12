@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
-import { selectReceipt, fetchExpProducts, fetchReceipts } from "../reducers/receiptsSlice";
-import { addReceipt, deleteItem } from "../reducers/receiptsSlice";
+import { selectReceipt, fetchExpProducts } from "../reducers/receiptsSlice";
+import changeProperty,{ deleteItem} from "../reducers/receiptsSlice";
 
 
 
@@ -11,31 +11,32 @@ const Receipt = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    useEffect(() => {
-        dispatch(fetchReceipts())
-    }, []);
+  
 
     const fetchExp = (item) => {
-
         dispatch(fetchExpProducts(item.name))
         navigate('/exp')
     }
 
-    const changePropertyValueFridge = (item) => {
-        document.getElementById("fridge").checked = true
-        document.getElementById("freezer").checked = false
-        item.fridge = true
-        console.log(item.fridge)
-        return item
-    }
+    const del = (item) => dispatch(deleteItem(item))
 
-    const changePropertyValueFreezer = (item) => {
-        document.getElementById("fridge").checked = false
-        document.getElementById("freezer").checked = true
-        item.fridge = false
-        console.log(item.fridge)
-        return item
+    // const changePropertyValueFridge = (name) => {
+    //     // document.getElementById(`${item.name}Fridge`).checked = true
+    //     // document.getElementById(`${item.name}Freezer`).checked = false
+    //     // item.fridge = !(item.fridge);
+    //     const dispatch(changeProperty(name));
+    //     console.log(item.fridge)
+    //     return item
+    // }
 
+    const changePropertyValue= (name) => {
+        // document.getElementById(item.name+'Fridge').checked = false
+        // document.getElementById(item.name+'Freezer').checked = true
+        // item.fridge = false
+        const change = dispatch(changeProperty(name));
+
+        console.log(change)
+        return change;
     }
 
     console.log(receipt);
@@ -49,22 +50,32 @@ const Receipt = () => {
                     {receipt? receipt.map((item) => (
                         <div key={item.name}>
                             {item.name}
-                            {/* <button onClick={deleteItem}>delete</button> */}
-                            <input type="checkbox" id="fridge"
-                                name='fridge' value={item.fridge} onClick={(item) => {
-                                    changePropertyValueFridge(item)
+                            <div><button onClick={()=>{del(item)}}>-</button></div>
+                            {/* <label>
+                            <input type="checkbox" id= {item.name}
+                                 
+                                onChange={(evt) => {
+                                    // evt.target.checked = true
+                                    changePropertyValue(evt.target.id)
                                     console.log("update", receipt)
                                     }
-                                }/>
-                            <label for={item.name}>fridge</label>
-
-                            <input type="checkbox" id="freezer"
-                                name='freezer' value={item.fridge} onClick={(item) => {
-                                    changePropertyValueFreezer(item)
+                                }
+                                />{item.fridge? 'Fridge':'Freezer'}
+                            </label>
+                            
+                            <label>Freezer
+                            <input type="checkbox" id={item.name}
+                               
+                                onChange={(evt) => {
+                                    evt.target.checked = true
+                                    console.log(evt.target.id);
+                                    changePropertyValue(evt.target.id)
                                     console.log("update", receipt)
                                     }
-                                }/>
-                            <label for={item.name}>freezer</label>
+                                }
+                                />
+                            </label> */}
+                             
                         </div>)
                     ): ''}</div>
 
@@ -72,7 +83,7 @@ const Receipt = () => {
                 <button onClick={() => receipt.map((item) => fetchExp(item)
                 // createReceipt()
                 )}>Calculate Expirations</button>
-                <button onClick={addReceipt()}>Add Receipt</button>
+                {/* <button onClick={}>Add Receipt</button> */}
             </div>
         </>
     )

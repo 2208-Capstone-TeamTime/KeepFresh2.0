@@ -2,39 +2,28 @@ const mongoose  = require("mongoose");
 const Receipts = require("../models/Receipts")
 
 module.exports = {
-  findAllReceipts: async (req, res) => {
-    Receipts.find({})
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving receipts."
-        });
-      });
-  },
-
-  findReceiptbyUserId: async (req, res, next) => {
+  findReceiptsbyUserId: async (req, res, next) => {
     try {
-      const data = await Receipts.find({ _id: req.params.id })
+      const data = await Receipts.find({ userId: req.params.userId })
       res.send(data);
-    } catch (error) {
-      console.log("Error in GET /api/receipts :\n\n", error);
-      next(error);
+    } catch (err){
+      console.log('ERROR FINDING USER RECEIPTS : \N', err);
+      next(err);
     }
   },
 
-  createReceipt: async (req, res, next) => {
-    const id = new mongoose.Types.ObjectId
-    try {
-      const addReceipt = new Receipts({_id: id, productsId: req.body.products})
-      const result = await addReceipt.save()
-      res.send(result)
-    }
-    catch (error) {
-      console.log("Error in POST /api/receipts :\n\n", error);
-      next(error)
+  createReceipt: (req, res, next) => {
+    const receiptId = new mongoose.Types.ObjectId;
+    
+    const userId = mongoose.Types.ObjectId(req.params.userId);
+
+    try{
+      console.log(userId);
+      Receipts.create({_id: receiptId, products: req.body, userId:userId})
+      .then((data) => res.status(200).send(data));
+    } catch (err){
+      console.log('ERROR CREATING USER RECEIPT : \N', err);
+      next(err);
     }
   },
 

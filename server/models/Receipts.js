@@ -6,8 +6,8 @@ const ReceiptSchema = Schema({
     // usersReceipts: [milk, chesse...],
     // userEmail: adsfa@gmail.com
 
-    productsId: [{type: Schema.Types.ObjectId, ref:'Products'}],
-    userId: [{type: Schema.Types.ObjectId, ref:'User'}]
+    products: [],
+    userId: {type: Schema.Types.ObjectId, ref:'Users'}
 });
 
 module.exports = mongoose.model('Receipts', ReceiptSchema);
