@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import produce from "immer"
 
 
 const initialState = {
@@ -15,9 +14,9 @@ export const findReceiptsbyUserId = createAsyncThunk('findReceiptsbyUserId', asy
 })
 
 export const createReceipt = createAsyncThunk('createReceipt', async (payload) => {
-  console.log('store receipt for:',payload);
+  console.log('store receipt for:',payload.id);
   const { data } = await axios.post(`/api/receipts/${payload.id}`, payload.exp)
-  return data
+  return data;
 })
 
 export const fetchExpProducts = createAsyncThunk("fetchExpProducts", async (payload) => {
@@ -44,15 +43,17 @@ const receiptSlice = createSlice({
         newItem.quantity = 1;
         newItem.fridge = true;
         state.products.push(newItem);
-        console.log(newItem)
+        // console.log(newItem)
       }
       return state;
     },
     deleteItem: (state, action) => {
       const item = state.products.find((p) => p.name === action.payload.name)
       if (item) {
-        // let idx = indexOf(item);
-        state.products.splice(state.products[item], 1);
+        
+        let idx = state.products.indexOf(item);
+        // console.log('delete', idx);
+        state.products.splice(idx, 1);
       }
       return state;
     },
@@ -86,12 +87,12 @@ const receiptSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(findReceiptsbyUserId.fulfilled, (state, action) => {
-      console.log('History', action.payload);
-     state.pastReceipts = action.payload
+      // console.log('History', action.payload);
+     state.pastReceipts= action.payload
     }),
       builder.addCase(createReceipt.fulfilled, (state, action) => {
-        console.log('Stored! \N Emptying Receipt....');
-        state.pastReceipts.push(action.payload);
+        console.log('Stored! Emptying Receipt....');
+        state.products = initialState.products;
         state.exp = initialState.exp;
         return state;
       }),
@@ -115,19 +116,10 @@ export const selectPast = (state) => {
 }
 
 export const selectExp = (state) => {
-  console.log('EXP ARR:', state.receipt.exp);
+ 
   return state.receipt.exp;
 };
 
 export const { add2Receipt, deleteItem, changeValue } = receiptSlice.actions;
 
 export default receiptSlice.reducer;
-
-
-
-/**
- * when we click the products button it would return product object and render the name also update property default to fridge
- * turnary operation to check if property would change to freezer
- * after clicking the calc exp button it would update the exp properties to calculate base on the turnary and switch to the exp page and render based on the condition.
- * add to receipt button would be on the exp page and create new receipt entry that would be tied to the current user and it update the current state object to the receipt db properity of user receipt
- */

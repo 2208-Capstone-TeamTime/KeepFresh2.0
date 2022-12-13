@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import   { storeUserInfo, currentUser} from '../reducers/userSlice';
+import   { storeUserInfo, currentUser, signOut} from '../reducers/userSlice';
 import jwt_decode from "jwt-decode"
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 const Signin = () => {
     const user = useSelector(currentUser);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
 
     function handleCallbackResponse(response){
@@ -32,12 +34,15 @@ const Signin = () => {
 
         google.accounts.id.renderButton(
             document.getElementById("signInDiv"),
-            {theme: "outline", size: "large"}
+            {theme: "outline", size: "medium"}
         )
-    }, [])
+    }, [user])
 
     const setUser = () =>{
-        window.location.reload();
+        dispatch(signOut({}))
+        navigate('/')
+        document.getElementById('signInDiv').hidden = false;
+        document.getElementById('signOut').hidden = true;
     }
 
     

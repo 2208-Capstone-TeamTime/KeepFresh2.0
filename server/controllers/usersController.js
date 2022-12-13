@@ -1,7 +1,7 @@
 const Users = require('../models/Users');
 const mongoose = require('mongoose');
 
-//find all users
+
 module.exports = {
     findAllUsers: (req, res) => {
 

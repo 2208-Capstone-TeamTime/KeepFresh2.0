@@ -13,9 +13,11 @@ const Expirations = () => {
     const navigate = useNavigate();
 
     const storeExp = (Items) => {
-        dispatch(createReceipt({ id: user._id, exp: Items }));
-        dispatch(findReceiptsbyUserId({ user }));
-        console.log('Stored Successfully!');
+        if(user._id !== undefined){
+            dispatch(createReceipt({ id: user._id, exp: Items }));
+            dispatch(findReceiptsbyUserId(user ));
+            console.log('Stored Successfully!');
+        }
     };
 
     const viewHistory = () => {
@@ -47,7 +49,7 @@ const Expirations = () => {
             </div>
 
             <div>
-                {!Items ? 
+                {!Items.length ? 
                 (
                 <>
                     <div>No expirations to display</div>
@@ -56,7 +58,7 @@ const Expirations = () => {
                     : 
                     Items.map((item) => (
                         <>
-                        //call return exp 
+                       
                         <div key={item.name}>
                             <h3>{item.name}</h3>
                             <h2 id={item.name} >Fridge Exp</h2>
@@ -71,7 +73,7 @@ const Expirations = () => {
                     <div>
                 {Items.length >0 ? (<>
 
-                    <button onClick={() => viewHistory()}>View History</button>
+                    
 
                     <button onClick={() => storeExp(Items)} >Store Expirations</button>
                 </>) :

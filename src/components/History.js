@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectPast, findReceiptsbyUserId } from '../reducers/receiptsSlice';
 import { currentUser } from '../reducers/userSlice';
@@ -12,16 +12,16 @@ const History = () => {
   useEffect(() => {
     dispatch(findReceiptsbyUserId(user))
     
-    console.log('past:', pastReceipts, user.displayName);
+    // console.log('past:', pastReceipts, user);
 },[])
   return (
     <div>
 
-      <h1>Expiration History</h1>
+      <h1>{`${user.displayName}'s Expiration History`}</h1>
       {pastReceipts.map((receipt,idx) => (<>
       <div>
-        {idx === 0? '':
-          <h2>Receipt #{idx}</h2>}
+        
+          <h2>Receipt #{idx +1}</h2>
         {receipt.products.map((item) => (<>
           <div key={item._id}>
             <h4>{item.name}</h4>
@@ -36,4 +36,4 @@ const History = () => {
   );
 }
 
-export default History
+export default History;

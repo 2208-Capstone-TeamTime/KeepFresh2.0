@@ -7,18 +7,18 @@ module.exports = {
       const data = await Receipts.find({ userId: req.params.userId })
       res.send(data);
     } catch (err){
-      console.log('ERROR FINDING USER RECEIPTS : \N', err);
+      console.log('ERROR FINDING USER RECEIPTS : ', err);
       next(err);
     }
   },
 
   createReceipt: (req, res, next) => {
     const receiptId = new mongoose.Types.ObjectId;
-    
+    console.log('req Params',req.params.userId)
     const userId = mongoose.Types.ObjectId(req.params.userId);
 
     try{
-      console.log(userId);
+      console.log('userId',userId);
       Receipts.create({_id: receiptId, products: req.body, userId:userId})
       .then((data) => res.status(200).send(data));
     } catch (err){

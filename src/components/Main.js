@@ -1,16 +1,11 @@
-import React from 'react'
-import { Routes, Route, NavLink } from 'react-router-dom'
-import Receipt from './Receipts'
-import Products from './Products'
-import Expirations from './Expirations'
-import History from './History'
-import Navbar from './navbar'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Receipt from './Receipts';
+import Products from './Products';
+import Expirations from './Expirations';
+import History from './History';
+import Navbar from './navbar';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-
-
-/* 
-    This is you entry point for your routes
-*/
 
 
 const Main = () => {
@@ -44,4 +39,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default Main;

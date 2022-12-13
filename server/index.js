@@ -1,11 +1,9 @@
 const express = require('express');
 const path = require("path");
-// const cors = require("cors");
 const volleyball = require("volleyball");
 
 require('dotenv').config();
 const mongoose = require('mongoose');
-// const { productsData, receiptsData} = require('./sampleData');
 
 const port = process.env.PORT || 8888
 const app = express();
@@ -18,7 +16,6 @@ app.listen(port, console.log(`Server running on port: ${port}`));
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 // logging middleware
-// app.use(cors());
 app.use(volleyball);
 
 // body parsing middleware

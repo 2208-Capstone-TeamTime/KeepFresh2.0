@@ -24,4 +24,6 @@ package-lock.json
 
 .env
 
+calendar.js
+
 client_secret.json

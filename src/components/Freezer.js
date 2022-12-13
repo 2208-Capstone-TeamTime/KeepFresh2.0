@@ -22,4 +22,4 @@ function Freezer() {
   );
 }
 
-export default Freezer
+export default Freezer;
