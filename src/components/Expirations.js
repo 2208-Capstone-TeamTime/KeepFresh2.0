@@ -13,9 +13,9 @@ const Expirations = () => {
     const navigate = useNavigate();
 
     const storeExp = (Items) => {
-        if(user._id !== undefined){
+        if (user._id !== undefined) {
             dispatch(createReceipt({ id: user._id, exp: Items }));
-            dispatch(findReceiptsbyUserId(user ));
+            dispatch(findReceiptsbyUserId(user));
             console.log('Stored Successfully!');
         }
     };
@@ -44,45 +44,33 @@ const Expirations = () => {
 
     return (
         <>
-            <div className="expirations">
-                    <h2>Expirations</h2>
-            </div>
-
-            <div>
-                {!Items.length ? 
-                (
-                <>
-                    <div>No expirations to display</div>
-                </>
-                )
-                    : 
-                    Items.map((item) => (
-                        <>
-                       
-                        <div key={item.name}>
-                            <h3>{item.name}</h3>
-                            <h2 id={item.name} >Fridge Exp</h2>
-                        </div>
-                        <div>
-                        <button onClick={() => {addFridge(item)}}>Fridge</button>
-                        <button onClick={() => {addFreezer(item)}}>Freezer</button>
-                        </div>
-                        </>
-                    ))}
-
-                    <div>
-                {Items.length >0 ? (<>
-
-                    
-
-                    <button onClick={() => storeExp(Items)} >Store Expirations</button>
-                </>) :
-                    <button onClick={() => viewHistory()}>View History</button>
-                }
+            <div className="exp">
+                <div><h2>Expirations</h2></div>
+                <div className="exp-items">
+                    {!Items.length ? (<><div>No expirations to display</div></>)
+                        : Items.map((item) => (
+                            <>
+                                <div className="exp-item" key={item.name}>
+                                    <h3>{item.name}</h3>
+                                    <h2 id={item.name} ></h2>
+                                </div>
+                                <div >
+                                    <button onClick={() => { addFridge(item) }}>Fridge</button>
+                                    <button onClick={() => { addFreezer(item) }}>Freezer</button>
+                                </div>
+                            </>
+                        ))}
+                    <div className="store-btn">
+                        {Items.length > 0 ? (<>
+                            <button onClick={() => storeExp(Items)} >Store Expirations</button>
+                        </>) :
+                            <button onClick={() => viewHistory()}>View History</button>
+                        }
                     </div>
+                </div>
             </div>
         </>
     )
 }
 
-export default Expirations
+export default Expirations;

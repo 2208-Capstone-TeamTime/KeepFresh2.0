@@ -2,21 +2,23 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Signin from './signin';
 
-import { useSelector } from 'react-redux';
-
-
 const linkStyle = { textDecoration: 'none', color: 'white' };
 const Navbar = () => {
-    
+
     return (
-        <><div>
-            <NavLink style={linkStyle} to=''>
-                <h1 >Keep Fresh</h1> </NavLink> </div>
+        <>
             <div>
-                <Signin/>
-                
-                <NavLink style={linkStyle} to='/history'>View History</NavLink>
-                <NavLink style={linkStyle} to='/aboutUs'>About Us</NavLink>
+                <NavLink style={linkStyle} to=''>
+                <img id='logo' className="lil-nav__img" src="https://i.postimg.cc/ncNFsKGC/1.jpg" alt="Stuff" />
+                </NavLink>
+            </div>
+            <div className='dropdown'>
+                <Signin className="dropbtn" />
+                <div className='dropdown-content'>
+                    <NavLink style={linkStyle} to='/'>Home</NavLink>
+                    <NavLink style={linkStyle} to='/start'>Calculate Expiration</NavLink>
+                    <NavLink style={linkStyle} to='/history'>Storage</NavLink>
+                </div>
             </div>
         </>
     )
