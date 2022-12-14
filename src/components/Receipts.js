@@ -2,18 +2,18 @@ import React from "react";
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux";
 import { selectReceipt, fetchExpProducts } from "../reducers/receiptsSlice";
-import changeProperty,{ deleteItem} from "../reducers/receiptsSlice";
+import changeProperty, { deleteItem } from "../reducers/receiptsSlice";
 
 
 
 const Receipt = () => {
     const receipt = useSelector(selectReceipt);
-    
-    
+
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-  
+
 
     const fetchExp = (item) => {
         dispatch(fetchExpProducts(item.name))
@@ -43,31 +43,19 @@ const Receipt = () => {
         <>
             <div className="receipt">
                 <div className="receipt-header">
-                    <h2>Receipt</h2>
+                    <h2>Produce List</h2>
                 </div>
                 <div className="receipt-items">
                     {receipt ? receipt.map((item) => (
                         <div key={item.name}>
                             {item.name}
-                            <div><button onClick={()=>{del(item)}}>-</button></div>
+                            <button className="deleteBtn" onClick={() => { del(item) }}> - </button>
                         </div>)
-                    ): ''}
+                    ) : ''}
                 </div>
-                        <div>
-                            {/* <button onClick={deleteItem}>delete</button> */}
-                            {/* {console.log("receipt", receipt)}
-                            {console.log("product", product)} */}
-                            {/* <button onClick={() => {toggleValue(item)}}></button> */}
-                        </div>
-                    
-            </div>
-            <div>
-
-              
-                <button onClick={() => receipt.map((item) => fetchExp(item)
-                    
-                )}>Calculate Expirations</button>
-         
+                <div className="calc-btn">
+                    <button onClick={() => receipt.map((item) => fetchExp(item))}>Calculate Expirations</button>
+                </div>
             </div>
         </>
     )

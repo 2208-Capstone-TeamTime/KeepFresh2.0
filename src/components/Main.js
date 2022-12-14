@@ -5,6 +5,8 @@ import Products from './Products';
 import Expirations from './Expirations';
 import History from './History';
 import Navbar from './navbar';
+import Carousel from './carousel';
+import FAQ from './FAQ'
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
@@ -15,26 +17,30 @@ const Main = () => {
         <nav>
           <Navbar />
         </nav>
-        <main>
-          <Routes>
-            <Route path='/' element={<>
-              <Receipt />
-              <Products />
-            </>}>
-            </Route>
-            <Route path='/exp' element={<>
-              <Expirations />
-            </>}>
-            </Route>
-            <Route path='/history' element={<>
-              <History />
-            </>}>
-            </Route>
-
-          </Routes>
-        </main>
+          <main>
+            <Routes>
+              <Route path='/' element={<>
+                <Carousel />
+                <FAQ />
+              </>}>
+              </Route>
+              <Route path='/start' element={<>
+                <Receipt/>
+                <Products />
+              </>}>
+              </Route>
+              <Route path='/exp' element={<>
+                <Expirations />
+              </>}>
+              </Route>
+              <Route path='/history' element={<>
+                <History />
+              </>}>
+              </Route>
+            </Routes>
+          </main>
       </GoogleOAuthProvider>
-      
+
     </div>
   )
 }

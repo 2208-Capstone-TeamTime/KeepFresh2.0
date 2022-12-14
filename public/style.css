@@ -1,78 +1,262 @@
- * {
-    box-sizing: border-box;
-    font-family: arial, sans-serif;
-  }
-  
-  body {
-    background: linear-gradient(#ffffff, #c0c0c0);
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
+* {
+  box-sizing: border-box;
+  font-family: arial, sans-serif;
+}
 
-  nav {
-    align-items: center;
-    background-color: #333333;
-    color: #c0c0c0;
-    display: flex;
-    height: 80px;
-    padding: 10px;
-    justify-content: space-between;
-  }
-  
-  main {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+body {
+  background: #e2dcdc;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
 
-  .receipt{
-    margin: 5%;
-    width: 40vmax;
-    min-height: 40vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(186, 202, 253);
-  }
+nav {
+  align-items: center;
+  background-color: #333333;
+  color: #c0c0c0;
+  display: flex;
+  height: 150px;
+  padding: 10px;
+  justify-content: space-between;
+}
 
-  .receipt-items{
-    display: flex;
-    flex-direction:column;
-    flex-wrap: wrap;
-  }
+#logo {
+  height: 130px;
+  width: 220px;
+  padding: 5px;
+}
 
-  .products{
-    margin: 2%;
-    width: 40vmax;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .product-buttons{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-  }
+/*
+* DROP DOWN BUTTON BEGIN
+*/
 
-  .product-button{
-    border-radius: 5px;
-    border-color: none;
-    color: #000000;
-    background-color: rgb(186, 202, 253);
-  }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
-  .expirations{
-    margin: 2%;
-    width: 85vmax;
-    height: 40vmax;
-    display: flex;
-    flex-direction: column;
-    flex-flow: wrap;
-    align-items: center;
-  }
-  
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #321d1d;
+  min-width: 175px;
+  z-index: 1;
+  border-radius: 8px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  border-radius: 8px;
+  background-color: rgb(177, 177, 177);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#signOut {
+  min-width: 175px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/*
+* DROP DOWN BUTTON END
+*/
+
+/*
+* SMALLER SCROLLING IMAGE START
+*/
+
+.lil-nav {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 500px;
+  display: flex;
+  grid-row-start: 2;
+  margin: 3% 0 3% 0
+}
+
+.lil-nav__img {
+  object-fit: cover;
+  display: flex;
+  min-width: 45%;
+  min-height: 45%;
+  margin-right: 10px;
+}
+
+#get-started {
+  text-align: center;
+}
+
+#get-started button {
+  font-size: xx-large;
+  width: 15rem;
+  height: 5rem;
+  background-color: green;
+  margin-bottom: 1%;
+}
+
+.faq {
+  display: column;
+  background-color: rgb(177, 177, 177);
+  float: right;
+  margin: 1% 1%;
+  background-color: aliceblue;
+  width: 48%;
+  height: 10vw;
+  text-align: center;
+}
+
+.faq-item {
+  padding: 5px;
+}
+
+.new-feat {
+  display: column;
+  float: left;
+  margin: 1% 1%;
+  background-color: aliceblue;
+  width: 48%;
+  height: 10vw;
+  text-align: center;
+}
+
+.feat-list {
+  list-style-type: none;
+  padding: 5px;
+}
+
+/*
+* SMALLER SCROLLING IMAGE END
+*/
+
+/*
+* /start route CSS
+*/
+.receipt {
+  float: left;
+  margin: 1% 1%;
+  background-color: aliceblue;
+  width: 48vw;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.receipt-items {
+  display: flex;
+  flex-direction: column;
+  min-height: 35vh;
+  margin: 1%
+}
+
+.calc-btn {
+  width: 10rem;
+  margin: 5px;
+}
+
+.calc-btn button {
+  font-size: large;
+}
+
+.categories {
+  float: right;
+  margin: 1% 1%;
+  width: 48vw;
+  text-align: center;
+  min-height: 80vh;
+  background-color: aliceblue;
+}
+
+.categories-header {
+  text-align: center;
+}
+
+.category-btns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 5rem;
+}
+
+.categories button {
+  min-width: 7rem;
+  font-size: large;
+  margin: 5px;
+}
+
+.products {
+  margin-right: 1rem;
+  min-width: 75px;
+  justify-content: space-evenly;
+  display: inline-block;
+}
+
+/*
+* END OF
+* /start route CSS
+*/
+
+.exp {
+  margin: .5%;
+  width: 99%;
+  height: 100%;
+  display: column;
+  background-color: rgb(230, 218, 204);
+  text-align: center;
+}
+
+.exp-items {
+  padding: 1rem;
+}
+
+.exp-items button {
+  text-align: center;
+  margin: 10px;
+  min-width: 7rem;
+  font-size: large;
+  margin: 5px;
+}
+
+/*
+* User History Start
+*/
+.user-history {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.userPage-header h1 {
+  text-align: center;
+}
+
+.stored-history {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-left: 10%;
+  max-height: 100%;
+  background-color: aliceblue;
+}
+
+.individual-hist {
+  width: 36%;
+  padding-left: 20px;
+}
+
+/*
+* User History End
+*/
